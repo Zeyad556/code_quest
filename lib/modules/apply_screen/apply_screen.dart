@@ -42,7 +42,6 @@ class _ApplyScreenState extends State<ApplyScreen> {
               ],
             ),
           ),
-
         ),
         body: TabBarView(
           children: [
