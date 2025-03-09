@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../shared/components/components.dart';
 import '../forget_pasword_with_phone_screen/forget_password_with_phone.dart';
-import '../sign_in_screen/sign_in.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
@@ -79,7 +78,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       width: 360.0,
                       height: 40.0,
                       decoration: BoxDecoration(
-                        color: Colors.grey[350], //el [] 3shan opacity
+                        color: Colors.grey[350],
                       ),
                       child: defaultFormField(
                         controller: phoneController,
