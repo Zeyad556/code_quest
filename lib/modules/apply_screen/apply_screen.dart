@@ -22,8 +22,6 @@ class _ApplyScreenState extends State<ApplyScreen> {
           ],
           title:Padding(
             padding: const EdgeInsetsDirectional.only(top: 50.0),
-
-            
             child: Row(
               children: [
                 Text(
