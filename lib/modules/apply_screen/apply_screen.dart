@@ -1,54 +1,92 @@
+import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ApplyScreen extends StatefulWidget {
-  @override
-  State<ApplyScreen> createState() => _ApplyScreenState();
-}
+class ApplyScreen extends StatelessWidget {
+  const ApplyScreen({super.key});
 
-class _ApplyScreenState extends State<ApplyScreen> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3, // Number of tabs
-      child: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 130.0,
-          backgroundColor: Colors.deepPurple,
-          actions: [
-            IconButton(
-              icon: Icon(Icons.account_circle,color: Colors.white,size: 40,),
-              onPressed: () {},
-            ),
-          ],
-          title:Padding(
-            padding: const EdgeInsetsDirectional.only(top: 50.0),
-            child: Row(
-              children: [
-                Text(
-                  "CodeQuest",
-                  style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Expanded(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: 20.0,
+                  end: 150.0,
                 ),
-                SizedBox(width: 20),
-                Expanded(child: TabBar(
-                  indicatorColor: Colors.white,
-                  indicatorWeight: 3,
-                  labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold,color: Colors.white),
-                  tabs: [
-                    Tab(text: "Apply"),
-                    Tab(text: "Prepare"),
-                    Tab(text: "Certify"),
-                  ],
-                ),)
-              ],
-            ),
+                child: Text(
+                  'Get Your Course',
+                  style: TextStyle(
+                    fontSize: 22.0.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.0.h),
+              CourseCard(
+                courseName: 'C',
+                imagePath: 'assets/images/c_logo.png',
+                fontSize: 30,
+                width: 500,
+                height: 160,
+                sizedheight: 50,
+                buttonWidth: 150,
+                buttonHeight: 40,
+                buttonWord: 'Get Certified',
+              ),
+              SizedBox(height: 20.0.h),
+              CourseCard(
+                courseName: 'C++',
+                imagePath: 'assets/images/c++_logo.png',
+                fontSize: 25,
+                width: 500,
+                height: 160,
+                sizedheight: 50,
+                buttonWidth: 150,
+                buttonHeight: 40,
+                buttonWord: 'Get Certified',
+              ),
+              SizedBox(height: 20.0.h),
+              CourseCard(
+                courseName: 'Java',
+                imagePath: 'assets/images/java_logo.png',
+                fontSize: 21,
+                width: 500,
+                height: 160,
+                sizedheight: 50,
+                buttonWidth: 150,
+                buttonHeight: 40,
+                buttonWord: 'Get Certified',
+              ),
+              SizedBox(height: 20.0.h),
+              CourseCard(
+                courseName: 'Css',
+                imagePath: 'assets/images/css_logo.png',
+                fontSize: 26,
+                width: 500,
+                height: 160,
+                sizedheight: 50,
+                buttonWidth: 150,
+                buttonHeight: 40,
+                buttonWord: 'Get Certified',
+              ),
+              SizedBox(height: 20.0.h),
+              CourseCard(
+                courseName: 'Java Script',
+                imagePath: 'assets/images/javascript_logo.png',
+                fontSize: 17.1,
+                width: 500,
+                height: 160,
+                sizedheight: 50,
+                buttonWidth: 150,
+                buttonHeight: 40,
+                buttonWord: 'Get Certified',
+              ),
+            ],
           ),
-        ),
-        body: TabBarView(
-          children: [
-            Center(child: Text("Prepare Content")),
-            Center(child: Text("Certify Content")),
-            Center(child: Text("Apply Content")),
-          ],
         ),
       ),
     );

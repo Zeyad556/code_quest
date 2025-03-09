@@ -1,4 +1,6 @@
+import 'package:code_quest/modules/sign_in_screen/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../shared/components/components.dart';
 import '../forget_pasword_with_phone_screen/forget_password_with_phone.dart';
 
@@ -34,8 +36,8 @@ class _LogInScreenState extends State<LogInScreen> {
                       ),
                       child: Image(
                         image: AssetImage('assets/images/woman_2_logo.png'),
-                        width: 300.0,
-                        height: 500.0,
+                        width: 300.0.w,
+                        height: 500.0.h,
                       ),
                     ),
                   ),
@@ -48,8 +50,8 @@ class _LogInScreenState extends State<LogInScreen> {
                       ),
                       child: Image(
                         image: AssetImage('assets/images/code_quest_logo.png'),
-                        width: 80.0,
-                        height: 100.0,
+                        width: 80.0.w,
+                        height: 100.0.h,
                       ),
                     ),
                   ),
@@ -63,20 +65,20 @@ class _LogInScreenState extends State<LogInScreen> {
                       'Phone Number',
                       style: TextStyle(
                         color: Colors.grey[500],
-                        fontSize: 16.0,
+                        fontSize: 16.0.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  SizedBox(height: 5.0),
+                  SizedBox(height: 5.0.h),
                   Padding(
                     padding: const EdgeInsetsDirectional.only(
                       end: 20,
                       start: 20,
                     ),
                     child: Container(
-                      width: 360.0,
-                      height: 40.0,
+                      width: 360.0.w,
+                      height: 40.0.h,
                       decoration: BoxDecoration(
                         color: Colors.grey[350],
                       ),
@@ -94,27 +96,27 @@ class _LogInScreenState extends State<LogInScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 30.0),
+                  SizedBox(height: 30.0.h),
                   Padding(
                     padding: const EdgeInsetsDirectional.only(end: 270),
                     child: Text(
                       'Password',
                       style: TextStyle(
                         color: Colors.grey[500],
-                        fontSize: 16.0,
+                        fontSize: 16.0.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  SizedBox(height: 5.0),
+                  SizedBox(height: 5.0.h),
                   Padding(
                     padding: const EdgeInsetsDirectional.only(
                       end: 20,
                       start: 20,
                     ),
                     child: Container(
-                      width: 360.0,
-                      height: 40.0,
+                      width: 360.0.w,
+                      height: 40.0.h,
                       decoration: BoxDecoration(
                         color: Colors.grey[350], //el [] 3shan opacity
                       ),
@@ -165,12 +167,12 @@ class _LogInScreenState extends State<LogInScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: 10.0.h),
               Column(
                 children: [
                   Container(
-                    width: 300,
-                    height: 50,
+                    width: 300.w,
+                    height: 50.h,
                     child: MaterialButton(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
@@ -179,7 +181,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       child: Text(
                         'LOG IN',
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 20.0.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -193,10 +195,10 @@ class _LogInScreenState extends State<LogInScreen> {
                       },
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 10.0.h),
                   Container(
-                    width: 300,
-                    height: 50,
+                    width: 300.w,
+                    height: 50.h,
                     child: MaterialButton(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50.0),
@@ -205,7 +207,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       child: Text(
                         'SIGN IN',
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 20.0.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -213,8 +215,9 @@ class _LogInScreenState extends State<LogInScreen> {
                       onPressed: () {
                         if (formKey.currentState != null &&
                             formKey.currentState!.validate()) {
-                          print(phoneController.text);
-                          print(passwordController.text);
+                          Navigator.push(context, 
+                          MaterialPageRoute(builder: (context)=>SignInScreen())
+                          );
                         }
                       },
                     ),
