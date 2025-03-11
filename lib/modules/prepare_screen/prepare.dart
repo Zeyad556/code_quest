@@ -61,32 +61,23 @@ class PrepareScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.only(top: 20),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Slider(
-
-                                value: progress,
-                                min: 0,
-                                max: 100,
-                                divisions: 100,
-                                label:
-                                    "${progress.toInt()}%", // Show tooltip with value
-                                activeColor: Colors.deepPurple,
-                                onChanged: (value) {
-                                  progress = value;
-                                },
-                              ),
-                              Text(
-                                "${progress.toInt()}%", // Display progress percentage
-                                style: TextStyle(
-                                  fontSize: 24.sp,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
+                        Slider(
+                          value: progress,
+                          min: 0,
+                          max: 100,
+                          divisions: 100,
+                          label:
+                              "${progress.toInt()}% Get to 48 points to unlock this badge", // Show tooltip with value
+                          activeColor: Colors.deepPurple,
+                          onChanged: (value) {
+                            progress = value;
+                          },
+                        ),
+                        Text(
+                          "${progress.toInt()}%", // Display progress percentage
+                          style: TextStyle(
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         SizedBox(height: 25.h),

@@ -3,6 +3,8 @@ import 'package:code_quest/modules/prepare_screen/prepare.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../certefication_screen/certefication.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _ApplyScreenState();
@@ -53,7 +55,7 @@ class _ApplyScreenState extends State<HomeScreen> {
           children: [
             Center(child: ApplyScreen()),
             Center(child: PrepareScreen()),
-            Center(child: Text("Certifcation Content")),
+            Center(child: CerteficationScreen()),
           ],
         ),
       ),
