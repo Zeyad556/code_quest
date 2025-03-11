@@ -7,7 +7,6 @@ class CerteficationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        clipBehavior: Clip.none,
         children: [
           Column(
             children: [
@@ -27,36 +26,50 @@ class CerteficationScreen extends StatelessWidget {
               SizedBox(height: 15.0.h),
               Center(
                 child: Container(
-                  width: 500,
-                  height: 200,
+                  width: 500.w,
+                  height: 170.h,
                   decoration: BoxDecoration(
-                      color: Colors.grey[350],
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 6,
-                          spreadRadius: 1,
-                        ),
-                      ]
+                    color: Colors.grey[350],
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 6,
+                        spreadRadius: 1,
+                      ),
+                    ],
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
-                        width: 80.w,
-                      ), // Creates space for the floating image
+                      // Creates space for the floating image
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 250,top: 10),
-                        child: Text(
-                          'Paython',
-                          style: TextStyle(
-                            fontSize: 25.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        padding: const EdgeInsetsDirectional.only(top: 20),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.only(
+                                bottom: 40,
+                                start: 25,
+                              ),
+                              child: Text(
+                                'Paython',
+                                style: TextStyle(
+                                  fontSize: 25.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 140.0.w),
+                            Image.asset(
+                              'assets/images/certified_logo.png',
+                              width: 100.w,
+                              height: 100.h,
+                            ),
+                          ],
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(top: 80,end: 30),
+                        padding: const EdgeInsetsDirectional.only(end: 40),
                         child: Container(
                           width: 200.w,
                           height: 40.h,
@@ -83,18 +96,7 @@ class CerteficationScreen extends StatelessWidget {
               ),
             ],
           ),
-          Positioned(
-            width: 140.w,
-            height: 140.h,
-            top: 5, // Adjust this value to move the image up
-            right: 5, // Positioning for the left side
-            child: Image.asset(
-              'assets/images/email_certified.png',
-              width: 140.w,
-              height: 140.h,
-            ),
-          ),
-        ]
+        ],
       ),
     );
   }

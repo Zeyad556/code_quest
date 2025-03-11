@@ -27,6 +27,18 @@ class ApplyScreen extends StatelessWidget {
               ),
               SizedBox(height: 20.0.h),
               CourseCard(
+                courseName: 'Paython',
+                imagePath: 'assets/images/paython_logo.png',
+                fontSize: 17,
+                width: 500,
+                height: 160,
+                sizedheight: 50,
+                buttonWidth: 150,
+                buttonHeight: 40,
+                buttonWord: 'Get Certified',
+              ),
+              SizedBox(height: 20.0.h),
+              CourseCard(
                 courseName: 'C',
                 imagePath: 'assets/images/c_logo.png',
                 fontSize: 30,
