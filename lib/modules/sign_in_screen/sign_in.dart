@@ -1,18 +1,23 @@
+import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
 
 class SignInModel {
-  final String name;
+  final String firstName;
+  final String lastName;
   final String email;
   final String phone;
   final String password;
+  final String confirmPassword;
   final String birth;
 
   SignInModel({
-    required this.name,
+    required this.firstName,
+    required this.lastName,
     required this.email,
     required this.phone,
     required this.password,
+    required this.confirmPassword,
     required this.birth,
   });
 }
@@ -27,10 +32,12 @@ class _SignInScreenState extends State<SignInScreen> {
   String? _selectedGender;
   @override
   Widget build(BuildContext context) {
-    var nameController = TextEditingController();
+    var firstNameController = TextEditingController();
+    var lastSameController = TextEditingController();
     var emailController = TextEditingController();
     var phoneController = TextEditingController();
     var passwordController = TextEditingController();
+    var confirmPasswordController = TextEditingController();
     var birthController = TextEditingController();
     var formKey = GlobalKey<FormState>();
     bool isPassword = true;
@@ -105,11 +112,11 @@ class _SignInScreenState extends State<SignInScreen> {
                               color: Colors.grey[350], //el [] 3shan opacity
                             ),
                             child: defaultFormField(
-                              controller: nameController,
+                              controller: firstNameController,
                               type: TextInputType.name,
                               validator: (String? value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Phone must not be empty';
+                                  return 'Name must not be empty';
                                 }
                                 return null;
                               },
@@ -144,11 +151,11 @@ class _SignInScreenState extends State<SignInScreen> {
                               color: Colors.grey[350], //el [] 3shan opacity
                             ),
                             child: defaultFormField(
-                              controller: nameController,
+                              controller: lastSameController,
                               type: TextInputType.name,
                               validator: (String? value) {
                                 if (value == null || value.isEmpty) {
-                                  return 'Phone must not be empty';
+                                  return 'Name must not be empty';
                                 }
                                 return null;
                               },
@@ -311,7 +318,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         height: 45,
                         decoration: BoxDecoration(color: Colors.grey[350]),
                         child: defaultFormField(
-                          controller: passwordController,
+                          controller: confirmPasswordController,
                           type: TextInputType.visiblePassword,
                           suffix:
                               isPassword
@@ -470,7 +477,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     onPressed: () {
                       if(formKey.currentState!.validate()){
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
                       }
                     },
                   ),

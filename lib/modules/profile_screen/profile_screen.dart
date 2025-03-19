@@ -3,17 +3,18 @@ import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../home_screen/home.dart';
+
 class ProfileScreen extends StatelessWidget {
   var notesController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(300), // Make AppBar taller
+        preferredSize: const Size.fromHeight(300),
         child: AppBar(
           backgroundColor: Colors.deepPurple,
           elevation: 0,
-          automaticallyImplyLeading: false, // Remove default back button
           flexibleSpace: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -24,19 +25,17 @@ class ProfileScreen extends StatelessWidget {
                   vertical: 10,
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    IconButton(
-                      icon: const Icon(Icons.exit_to_app, color: Colors.white),
-                      onPressed: () {},
-                    ),
-                    const Text(
-                      "CodeQuest",
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        color: Colors.white70,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20.0,
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(start: 300),
+                      child: const Text(
+                        "CodeQuest",
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          color: Colors.white70,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0,
+                        ),
                       ),
                     ),
                   ],

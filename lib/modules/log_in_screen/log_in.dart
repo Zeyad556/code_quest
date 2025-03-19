@@ -190,33 +190,12 @@ class _LogInScreenState extends State<LogInScreen> {
                         ),
                         onPressed: () {
                           if(formKey.currentState!.validate()){
-
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
                           }
                         },
                       ),
                     ),
                     SizedBox(height: 10.0.h),
-                    Container(
-                      width: 300.w,
-                      height: 50.h,
-                      child: MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
-                        color: Colors.deepPurple,
-                        child: Text(
-                          'SIGN IN',
-                          style: TextStyle(
-                            fontSize: 20.0.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
                 Padding(
                   padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom,
@@ -224,9 +203,9 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
               ],
             ),
-          ),
+          ]),
         ),
       ),
-    );
+    ));
   }
 }

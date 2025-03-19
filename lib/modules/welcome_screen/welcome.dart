@@ -228,7 +228,7 @@ class _WelcomeScreenState
                       color:
                           Colors.deepPurple,
                       child: Text(
-                        'Sign In',
+                        'Register',
                         style: TextStyle(
                           fontSize:
                               28.0,
