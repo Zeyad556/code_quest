@@ -7,7 +7,7 @@ Widget defaultFormField({
   Function(String)? onSubmit,
   Function(String)? onchange,
   bool isPassword = false,
-  required String? Function(String?) validator,
+  String? Function(String?)? validator,
   String? lable,
   IconData? prefix,
   IconData? suffix,
@@ -39,33 +39,33 @@ Widget defaultFormField({
   ),
 );
 
-Widget defaultButton({
-  double width = double.infinity,
-  double height = double.infinity,
-  Color background = Colors.blue,
-  bool isUpperCase = true,
-  double radius = 0.0,
-  required Function onPressed,
-  required String text,
-}) => Container(
-  width: width,
-  height: height,
-  child: MaterialButton(
-    onPressed: onPressed(),
-    child: Text(
-      isUpperCase ? text.toUpperCase() : text,
-      style: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-        fontSize: 20.0,
-      ),
-    ),
-  ),
-  decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(radius),
-    color: background,
-  ),
-);
+// Widget defaultButton({
+//   double width = double.infinity,
+//   double height = double.infinity,
+//   Color background = Colors.blue,
+//   bool isUpperCase = true,
+//   double radius = 0.0,
+//   required Function onPressed,
+//   required String text,
+// }) => Container(
+//   width: width,
+//   height: height,
+//   child: MaterialButton(
+//     onPressed: onPressed(),
+//     child: Text(
+//       isUpperCase ? text.toUpperCase() : text,
+//       style: TextStyle(
+//         color: Colors.white,
+//         fontWeight: FontWeight.bold,
+//         fontSize: 20.0,
+//       ),
+//     ),
+//   ),
+//   decoration: BoxDecoration(
+//     borderRadius: BorderRadius.circular(radius),
+//     color: background,
+//   ),
+// );
 
 class CourseCard extends StatelessWidget {
   final String courseName;
@@ -166,4 +166,68 @@ class CourseCard extends StatelessWidget {
       ],
     );
   }
+}
+Widget profileDetail(String title, String value) {
+  return Padding(
+    padding: const EdgeInsetsDirectional.only(end: 90.0, top: 10.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsetsDirectional.only(start: 10.0),
+          child: Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsetsDirectional.only(start: 10.0),
+          child: Text(
+            value,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget divider() {
+  return const Padding(
+    padding: EdgeInsets.symmetric(vertical: 8.0),
+    child: Divider(color: Colors.grey),
+  );
+}
+Widget buildProfileField(String label, String value, {bool isBold = false}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(vertical: 8),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Text(
+            label,
+            style: const TextStyle(fontSize: 14, color: Colors.black),
+          ),
+        ),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Text(
+            value,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
 }

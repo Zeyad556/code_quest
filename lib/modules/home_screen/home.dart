@@ -1,5 +1,6 @@
 import 'package:code_quest/modules/apply_screen/apply_screen.dart';
 import 'package:code_quest/modules/prepare_screen/prepare.dart';
+import 'package:code_quest/modules/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,7 +25,11 @@ class _ApplyScreenState extends State<HomeScreen> {
               padding: const EdgeInsetsDirectional.only(bottom: 50.0,end: 5.0),
               child: IconButton(
                 icon: Icon(Icons.account_circle,color: Colors.white,size: 40,),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen())
+                  );
+                },
               ),
             ),
           ],
