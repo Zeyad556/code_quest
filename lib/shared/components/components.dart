@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget defaultFormField({
+  int? max,
+  int? min,
   required TextEditingController controller,
   required TextInputType type,
   Function(String)? onSubmit,
@@ -13,7 +15,7 @@ Widget defaultFormField({
   IconData? suffix,
   Function? sufixPressed,
 }) => TextFormField(
-
+  maxLength: max,
   controller: controller,
   keyboardType: type,
   obscureText: isPassword,
@@ -201,7 +203,7 @@ Widget divider() {
 }
 Widget buildProfileField(String label, String value, {bool isBold = false}) {
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 8),
+    padding: const EdgeInsets.symmetric(vertical: 5),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -209,7 +211,7 @@ Widget buildProfileField(String label, String value, {bool isBold = false}) {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
             label,
-            style: const TextStyle(fontSize: 14, color: Colors.black),
+            style: TextStyle(fontSize: 14.sp, color: Colors.black,fontWeight: FontWeight.bold),
           ),
         ),
         Container(
@@ -217,7 +219,7 @@ Widget buildProfileField(String label, String value, {bool isBold = false}) {
           padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            color: Colors.grey[200],
+            color: Colors.white,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(
@@ -228,6 +230,11 @@ Widget buildProfileField(String label, String value, {bool isBold = false}) {
             ),
           ),
         ),
+        Container(
+          width: double.infinity,
+          height: 1,
+          color: Colors.black,
+        )
       ],
     ),
   );

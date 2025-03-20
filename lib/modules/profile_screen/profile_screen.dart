@@ -3,7 +3,19 @@ import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../home_screen/home.dart';
+class ProfileScreenModel {
+  final String name;
+  final String email;
+  final String phone;
+  final String birthDay;
+
+  ProfileScreenModel({
+    required this.name,
+    required this.email,
+    required this.phone,
+    required this.birthDay,
+  });
+}
 
 class ProfileScreen extends StatelessWidget {
   var notesController = TextEditingController();
@@ -69,7 +81,6 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      resizeToAvoidBottomInset: false,
       body: Expanded(
         child: SingleChildScrollView(
           reverse: true,

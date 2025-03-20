@@ -75,6 +75,7 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
                 width: 400,
                 decoration: BoxDecoration(color: Colors.grey[300]),
                 child: defaultFormField(
+                  max: 6,
                   controller: codeController,
                   type: TextInputType.number,
                   validator: (String? value) {
