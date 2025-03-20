@@ -23,13 +23,12 @@ class SignInModel {
 }
 
 class SignInScreen extends StatefulWidget {
-  List<SignInModel>signInData=[];
+  List<SignInModel> signInData = [];
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  String? _selectedGender;
   @override
   Widget build(BuildContext context) {
     var firstNameController = TextEditingController();
@@ -41,16 +40,16 @@ class _SignInScreenState extends State<SignInScreen> {
     var birthController = TextEditingController();
     var formKey = GlobalKey<FormState>();
     bool isPassword = true;
+    bool isConfirmPassword = true;
     bool isMale = false;
     bool isFemale = false;
     return Scaffold(
       appBar: AppBar(backgroundColor: Colors.white, toolbarHeight: 30),
       resizeToAvoidBottomInset: false,
-      body: Form(
-        key: formKey,
-        child: Expanded(
-          child: SingleChildScrollView(
-            reverse: true,
+      body: Expanded(
+        child: SingleChildScrollView(
+          child: Form(
+            key: formKey,
             child: Column(
               children: [
                 Stack(
@@ -77,7 +76,9 @@ class _SignInScreenState extends State<SignInScreen> {
                           vertical: 10.0,
                         ),
                         child: Image(
-                          image: AssetImage('assets/images/code_quest_logo.png'),
+                          image: AssetImage(
+                            'assets/images/code_quest_logo.png',
+                          ),
                           width: 100.0,
                           height: 95.0,
                         ),
@@ -321,10 +322,10 @@ class _SignInScreenState extends State<SignInScreen> {
                           controller: confirmPasswordController,
                           type: TextInputType.visiblePassword,
                           suffix:
-                              isPassword
+                          isConfirmPassword
                                   ? Icons.visibility
                                   : Icons.visibility_off,
-                          isPassword: isPassword,
+                          isPassword: isConfirmPassword,
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return 'Password must not be empty';
@@ -335,7 +336,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           prefix: Icons.lock,
                           sufixPressed: () {
                             setState(() {
-                              isPassword = !isPassword;
+                              isConfirmPassword = !isConfirmPassword;
                             });
                           },
                         ),
@@ -476,8 +477,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                     onPressed: () {
-                      if(formKey.currentState!.validate()){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                      if (formKey.currentState!.validate()) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
                       }
                     },
                   ),

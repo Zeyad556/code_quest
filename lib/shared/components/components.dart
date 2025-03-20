@@ -13,6 +13,7 @@ Widget defaultFormField({
   IconData? suffix,
   Function? sufixPressed,
 }) => TextFormField(
+
   controller: controller,
   keyboardType: type,
   obscureText: isPassword,
