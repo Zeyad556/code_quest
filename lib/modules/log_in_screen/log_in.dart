@@ -36,6 +36,7 @@ class _LogInScreenState extends State<LogInScreen> {
         },
         builder: (context, state) {
           return SingleChildScrollView(
+            reverse: true,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0.w),
               child: Form(
@@ -43,14 +44,32 @@ class _LogInScreenState extends State<LogInScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Center(
-                      child: Image.asset(
-                        'assets/images/code_quest_logo.png',
-                        width: 150.0.w,
-                        height: 150.0.h,
-                      ),
+                    Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Image(
+                            image: AssetImage('assets/images/woman_2_logo.png'),
+                            width: 300.0.w,
+                            height: 500.0.h,
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.symmetric(
+                              horizontal: 10.0,
+                              vertical: 10.0,
+                            ),
+                            child: Image(
+                              image: AssetImage('assets/images/code_quest_logo.png'),
+                              width: 80.0.w,
+                              height: 100.0.h,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 20.0.h),
                     Text('Phone Number', style: TextStyle(fontSize: 16.0.sp, fontWeight: FontWeight.bold)),
                     SizedBox(height: 5.0.h),
                     defaultFormField(
@@ -89,7 +108,6 @@ class _LogInScreenState extends State<LogInScreen> {
                         child: Text('Forget your password?', style: TextStyle(fontStyle: FontStyle.italic)),
                       ),
                     ),
-                    SizedBox(height: 20.0.h),
                     SizedBox(
                       width: double.infinity,
                       height: 50.h,

@@ -1,6 +1,7 @@
 import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignInModel {
   final String firstName;
@@ -22,13 +23,13 @@ class SignInModel {
   });
 }
 
-class SignInScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   List<SignInModel> signInData = [];
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInScreenState extends State<SignUpScreen> {
   @override
   final TextEditingController firstNameController = TextEditingController();
   final TextEditingController lastSameController = TextEditingController();
@@ -485,6 +486,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   },
                 ),
               ),
+              SizedBox(height: 20.0.h),
               Padding(
                 padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom,
