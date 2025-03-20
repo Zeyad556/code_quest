@@ -29,3 +29,10 @@ class SignUpFailure extends SignUpState {
   final String errorMessage;
   SignUpFailure(this.errorMessage);
 }
+
+class VerfiyOtpSuccess extends SignUpState {}
+
+class VerfiyOtpFailure extends SignUpState {
+  final String errorMessage;
+  VerfiyOtpFailure(this.errorMessage);
+}

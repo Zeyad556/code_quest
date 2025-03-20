@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:code_quest/modules/check_code_screen/check_code.dart';
 import 'package:code_quest/modules/sign_up_screen/model/sign_up_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -42,22 +43,39 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   void signUp(BuildContext context) {
-    if (formKey.currentState!.validate()) {
-      // Perform sign-up logic here
+    try {
+      if (formKey.currentState!.validate()) {
+        formKey.currentState!.save();
+        emit(SignUpLoading());
+        dio.post(
+          "https://usermangment-codequest-0fbfa624afb1.herokuapp.com/auth/register",
+          data: {
+            "firstName": firstNameController.text,
+            "lastName": lastNameController.text,
+            "email": emailController.text,
+            "phoneNum": phoneController.text,
+            "password": passwordController.text,
+            "birthDate": birthController.text,
+            "gender": isMale ? "male" : "female",
+          },
+        );
+        emit(SignUpSuccess());
+      }
+    } catch (e) {}
+  }
 
-      emit(SignUpLoading());
-      dio.post(
-        "https://usermangment-codequest-0fbfa624afb1.herokuapp.com/auth/register",
-        data: {
-          "firstName": firstNameController.text,
-          "lastName": lastNameController.text,
-          "email": emailController.text,
-          "phoneNum": phoneController.text,
-          "password": passwordController.text,
-          "birthDate": birthController.text,
-          "gender": isMale ? "male" : "female",
-        },
+  void verfiyOtp(BuildContext context, String email, int otp) async {
+    try {
+      final response = await dio.post(
+        'https://usermangment-codequest-0fbfa624afb1.herokuapp.com/auth/verify-otp',
+        queryParameters: {"email": email, "otp": otp},
       );
+      if (response.statusCode == 200) {
+        emit(VerfiyOtpSuccess());
+      }
+    } catch (e) {
+      emit(VerfiyOtpFailure(e.toString()));
+      throw e;
     }
   }
 }

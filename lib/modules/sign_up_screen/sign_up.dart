@@ -1,3 +1,4 @@
+import 'package:code_quest/modules/check_code_screen/check_code.dart';
 import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
 import 'package:code_quest/shared/components/components.dart';
@@ -26,9 +27,10 @@ class _SignInScreenState extends State<SignUpScreen> {
           child: BlocConsumer<SignUpCubit, SignUpState>(
             listener: (context, state) {
               if (state is SignUpSuccess) {
-                Navigator.pushReplacement(
+                Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => CheckCodeScreen()),
+                  (route) => false,
                 );
               } else if (state is SignUpFailure) {
                 ScaffoldMessenger.of(
