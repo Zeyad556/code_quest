@@ -1,3 +1,4 @@
+import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +10,7 @@ void main() {
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => LoginCubit()),
+        BlocProvider(create: (_) => SignUpCubit()),
       ],
       child: MyApp(),
     ),

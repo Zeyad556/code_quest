@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:code_quest/modules/sign_up_screen/model/sign_up_model.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
@@ -22,7 +24,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   bool isConfirmPasswordVisible = true;
   bool isMale = false;
   bool isFemale = false;
-
+  final dio = Dio();
   void togglePasswordVisibility() {
     isPasswordVisible = !isPasswordVisible;
     emit(PasswordVisibilityChanged(isPasswordVisible));
@@ -41,13 +43,21 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   void signUp(BuildContext context) {
     if (formKey.currentState!.validate()) {
-      emit(SignUpLoading());
+      // Perform sign-up logic here
 
-      // Simulate an API call
-      Future.delayed(Duration(seconds: 2), () {
-        emit(SignUpSuccess());
-        Navigator.pushReplacementNamed(context, '/home');
-      });
+      emit(SignUpLoading());
+      dio.post(
+        "https://usermangment-codequest-0fbfa624afb1.herokuapp.com/auth/register",
+        data: {
+          "firstName": firstNameController.text,
+          "lastName": lastNameController.text,
+          "email": emailController.text,
+          "phoneNum": phoneController.text,
+          "password": passwordController.text,
+          "birthDate": birthController.text,
+          "gender": isMale ? "male" : "female",
+        },
+      );
     }
   }
 }

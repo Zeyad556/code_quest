@@ -29,9 +29,9 @@ class _LogInScreenState extends State<LogInScreen> {
               MaterialPageRoute(builder: (context) => HomeScreen()),
             );
           } else if (state is LoginFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.error)),
-            );
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(state.error)));
           }
         },
         builder: (context, state) {
@@ -62,7 +62,9 @@ class _LogInScreenState extends State<LogInScreen> {
                               vertical: 10.0,
                             ),
                             child: Image(
-                              image: AssetImage('assets/images/code_quest_logo.png'),
+                              image: AssetImage(
+                                'assets/images/code_quest_logo.png',
+                              ),
                               width: 80.0.w,
                               height: 100.0.h,
                             ),
@@ -70,7 +72,13 @@ class _LogInScreenState extends State<LogInScreen> {
                         ),
                       ],
                     ),
-                    Text('Phone Number', style: TextStyle(fontSize: 16.0.sp, fontWeight: FontWeight.bold)),
+                    Text(
+                      'Phone Number',
+                      style: TextStyle(
+                        fontSize: 16.0.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     SizedBox(height: 5.0.h),
                     defaultFormField(
                       controller: phoneController,
@@ -78,34 +86,52 @@ class _LogInScreenState extends State<LogInScreen> {
                       lable: 'Enter your phone number',
                       prefix: Icons.phone,
                       validator: (value) {
-                        if (value == null || value.isEmpty) return 'Phone must not be empty';
+                        if (value == null || value.isEmpty)
+                          return 'Phone must not be empty';
                         return null;
                       },
                     ),
                     SizedBox(height: 20.0.h),
-                    Text('Password', style: TextStyle(fontSize: 16.0.sp, fontWeight: FontWeight.bold)),
+                    Text(
+                      'Password',
+                      style: TextStyle(
+                        fontSize: 16.0.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     SizedBox(height: 5.0.h),
                     defaultFormField(
                       controller: passwordController,
                       type: TextInputType.visiblePassword,
-                      suffix: isPassword ? Icons.visibility : Icons.visibility_off,
+                      suffix:
+                          isPassword ? Icons.visibility : Icons.visibility_off,
                       isPassword: isPassword,
                       validator: (value) {
-                        if (value == null || value.isEmpty) return 'Password must not be empty';
+                        if (value == null || value.isEmpty)
+                          return 'Password must not be empty';
                         return null;
                       },
                       lable: 'Enter your password',
                       prefix: Icons.lock,
-                      sufixPressed: () => setState(() => isPassword = !isPassword),
+                      sufixPressed:
+                          () => setState(() => isPassword = !isPassword),
                     ),
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
-                        onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ForgetPasswordWithPhoneScreen()),
+                        onPressed:
+                            () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) =>
+                                        ForgetPasswordWithPhoneScreen(),
+                              ),
+                            ),
+                        child: Text(
+                          'Forget your password?',
+                          style: TextStyle(fontStyle: FontStyle.italic),
                         ),
-                        child: Text('Forget your password?', style: TextStyle(fontStyle: FontStyle.italic)),
                       ),
                     ),
                     SizedBox(
@@ -113,15 +139,22 @@ class _LogInScreenState extends State<LogInScreen> {
                       height: 50.h,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50.0)),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
                           backgroundColor: Colors.deepPurple,
                         ),
-                        child: state is LoginLoading
-                            ? CircularProgressIndicator(color: Colors.white)
-                            : Text(
-                          'LOG IN',
-                          style: TextStyle(fontSize: 20.0.sp, fontWeight: FontWeight.bold, color: Colors.white),
-                        ),
+                        child:
+                            state is LoginLoading
+                                ? CircularProgressIndicator(color: Colors.white)
+                                : Text(
+                                  'LOG IN',
+                                  style: TextStyle(
+                                    fontSize: 20.0.sp,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             context.read<LoginCubit>().login(
