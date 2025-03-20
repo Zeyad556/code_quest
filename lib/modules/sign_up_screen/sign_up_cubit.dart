@@ -61,7 +61,9 @@ class SignUpCubit extends Cubit<SignUpState> {
         );
         emit(SignUpSuccess());
       }
-    } catch (e) {}
+    } catch (e) {
+      emit(SignUpFailure(e.toString()));
+    }
   }
 
   void verfiyOtp(BuildContext context, String email, int otp) async {
@@ -75,7 +77,6 @@ class SignUpCubit extends Cubit<SignUpState> {
       }
     } catch (e) {
       emit(VerfiyOtpFailure(e.toString()));
-      throw e;
     }
   }
 }
