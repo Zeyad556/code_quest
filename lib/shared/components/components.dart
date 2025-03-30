@@ -117,7 +117,7 @@ class CourseCard extends StatelessWidget {
               children: [
                 SizedBox(width: 80.w), // Creates space for the floating image
                 Padding(
-                  padding: const EdgeInsetsDirectional.only(end: 80.0),
+                  padding: const EdgeInsetsDirectional.only(end: 40.0),
                   child: Text(
                     courseName,
                     style: TextStyle(

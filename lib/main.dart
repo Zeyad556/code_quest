@@ -1,5 +1,7 @@
-import 'package:code_quest/modules/check_code_screen/check_code.dart';
+import 'package:code_quest/modules/home_screen/home.dart';
+import 'package:code_quest/modules/prepare_screen/prepare.dart';
 import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
+import 'package:code_quest/modules/verfiy_account_screen/check_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

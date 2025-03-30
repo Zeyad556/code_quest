@@ -1,9 +1,10 @@
+import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
 import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PrepareScreen extends StatelessWidget {
-  double progress=0.0;
+  double progress = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,20 +16,21 @@ class PrepareScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsetsDirectional.only(
                   top: 20.0,
-                  end: 150.0,
+                  end: 180.0,
                 ),
                 child: Text(
                   'Your Preparation',
                   style: TextStyle(
                     fontSize: 20.0.sp,
                     fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
               SizedBox(height: 15.0.h),
               Center(
                 child: Container(
-                  width: 400.w,
+                  width: 360.w,
                   height: 250.h,
                   decoration: BoxDecoration(
                     color: Colors.grey[350],
@@ -42,9 +44,8 @@ class PrepareScreen extends StatelessWidget {
                     ],
                   ),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.only(
-                      end: 150.0,
-                      top: 40,
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: 50.0,
                     ),
                     child: Column(
                       children: [
@@ -52,7 +53,7 @@ class PrepareScreen extends StatelessWidget {
                           width: 80.w,
                         ), // Creates space for the floating image
                         Padding(
-                          padding: const EdgeInsetsDirectional.only(end: 80.0),
+                          padding: const EdgeInsetsDirectional.only(end: 250.0),
                           child: Text(
                             'Paython',
                             style: TextStyle(
@@ -67,27 +68,35 @@ class PrepareScreen extends StatelessWidget {
                           max: 100,
                           divisions: 100,
                           label:
-                              "${progress.toInt()}% Get to 48 points to unlock this badge", // Show tooltip with value
+                              "${progress.toInt()}", // Show tooltip with value
                           activeColor: Colors.deepPurple,
                           onChanged: (value) {
                             progress = value;
                           },
                         ),
-                        Text(
-                          "${progress.toInt()}%", // Display progress percentage
-                          style: TextStyle(
-                            fontSize: 24.sp,
-                            fontWeight: FontWeight.bold,
+                        Padding(
+                          padding: const EdgeInsetsDirectional.symmetric(
+                            horizontal: 20,
+                          ),
+                          child: Text(
+                            "${progress.toInt()}% Get to 48 points to unlock this badge", // Display progress percentage
+                            style: TextStyle(
+                              fontSize: 17.6.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                        SizedBox(height: 25.h),
+
+                        SizedBox(height: 10.h),
                         Padding(
                           padding: const EdgeInsetsDirectional.only(top: 10),
                           child: Container(
                             width: 200.w,
                             height: 40.h,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>PaythonCourseScreen()));
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.deepPurple,
                                 shape: RoundedRectangleBorder(

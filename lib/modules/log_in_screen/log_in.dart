@@ -59,7 +59,7 @@ class _LogInScreenState extends State<LogInScreen> {
                           child: Padding(
                             padding: const EdgeInsetsDirectional.symmetric(
                               horizontal: 10.0,
-                              vertical: 10.0,
+                              vertical: 35.0,
                             ),
                             child: Image(
                               image: AssetImage(

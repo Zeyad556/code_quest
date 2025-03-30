@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _ApplyScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -59,7 +60,12 @@ class _ApplyScreenState extends State<HomeScreen> {
         body: TabBarView(
           children: [
             Center(child: ApplyScreen()),
-            Center(child: PrepareScreen()),
+            Center(
+                child:
+                PrepareScreen(
+
+                )
+            ),
             Center(child: CerteficationScreen()),
           ],
         ),

@@ -29,26 +29,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     child: Padding(
                       padding: const EdgeInsetsDirectional.symmetric(
                         horizontal: 60.0,
-                        vertical: 30.0,
                       ),
                       child: Image(
                         image: AssetImage('assets/images/woman_logo.png'),
                         width: 300.0.w,
                         height: 500.0.h,
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Padding(
-                      padding: const EdgeInsetsDirectional.symmetric(
-                        horizontal: 30.0,
-                        vertical: 30,
-                      ),
-                      child: Image(
-                        image: AssetImage('assets/images/code_quest_logo.png'),
-                        width: 80.0.w,
-                        height: 100.0.h,
                       ),
                     ),
                   ),

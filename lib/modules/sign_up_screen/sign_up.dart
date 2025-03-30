@@ -1,10 +1,11 @@
-import 'package:code_quest/modules/check_code_screen/check_code.dart';
 import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
 import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../verfiy_account_screen/check_code.dart';
 
 // ignore: must_be_immutable
 class SignUpScreen extends StatefulWidget {
@@ -47,13 +48,13 @@ class _SignInScreenState extends State<SignUpScreen> {
                         alignment: Alignment.topRight,
                         child: Padding(
                           padding: const EdgeInsetsDirectional.only(
-                            top: 80,
-                            end: 50,
+                            top: 60,
+                            end: 25,
                           ),
                           child: Image(
                             image: AssetImage('assets/images/sign_in_logo.png'),
-                            width: 350.0,
-                            height: 300.0,
+                            width: 350.0.w,
+                            height: 300.0.h,
                           ),
                         ),
                       ),
@@ -61,15 +62,15 @@ class _SignInScreenState extends State<SignUpScreen> {
                         alignment: Alignment.topRight,
                         child: Padding(
                           padding: const EdgeInsetsDirectional.symmetric(
-                            horizontal: 30.0,
+                            horizontal: 20.0,
                             vertical: 10.0,
                           ),
                           child: Image(
                             image: AssetImage(
                               'assets/images/code_quest_logo.png',
                             ),
-                            width: 100.0,
-                            height: 95.0,
+                            width: 100.0.w,
+                            height: 95.0.h,
                           ),
                         ),
                       ),
@@ -80,11 +81,11 @@ class _SignInScreenState extends State<SignUpScreen> {
                       Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.only(end: 80),
+                            padding: const EdgeInsetsDirectional.only(end: 50),
                             child: Text(
                               'First Name',
                               style: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: 18.0.sp,
                                 color: Colors.grey[500],
                                 fontWeight: FontWeight.bold,
                               ),
@@ -96,8 +97,8 @@ class _SignInScreenState extends State<SignUpScreen> {
                               start: 20,
                             ),
                             child: Container(
-                              width: 180,
-                              height: 50,
+                              width: 150.w,
+                              height: 50.h,
                               decoration: BoxDecoration(
                                 color: Colors.grey[350], //el [] 3shan opacity
                               ),
@@ -116,14 +117,15 @@ class _SignInScreenState extends State<SignUpScreen> {
                           ),
                         ],
                       ),
+                      SizedBox(width: 10.0.w),
                       Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.only(end: 80),
+                            padding: const EdgeInsetsDirectional.only(end: 50),
                             child: Text(
                               'Last Name',
                               style: TextStyle(
-                                fontSize: 18.0,
+                                fontSize: 18.0.sp,
                                 color: Colors.grey[500],
                                 fontWeight: FontWeight.bold,
                               ),
@@ -131,12 +133,11 @@ class _SignInScreenState extends State<SignUpScreen> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.only(
-                              end: 20,
-                              start: 20,
+                              end:5,
                             ),
                             child: Container(
-                              width: 180,
-                              height: 50,
+                              width: 150.w,
+                              height: 50.h,
                               decoration: BoxDecoration(
                                 color: Colors.grey[350], //el [] 3shan opacity
                               ),
@@ -157,25 +158,25 @@ class _SignInScreenState extends State<SignUpScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 50.h),
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 355),
+                        padding: const EdgeInsetsDirectional.only(end: 330),
                         child: Text(
                           'Email',
                           style: TextStyle(
-                            fontSize: 18.0,
+                            fontSize: 18.0.sp,
                             color: Colors.grey[500],
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 55),
+                        padding: const EdgeInsetsDirectional.only(start :5.0),
                         child: Container(
-                          width: 350,
-                          height: 45,
+                          width: 340.w,
+                          height: 40.h,
                           decoration: BoxDecoration(color: Colors.grey[350]),
                           child: defaultFormField(
                             controller: cubit.emailController,
@@ -193,25 +194,25 @@ class _SignInScreenState extends State<SignUpScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 280),
+                        padding: const EdgeInsetsDirectional.only(end: 240),
                         child: Text(
                           'Phone Number',
                           style: TextStyle(
-                            fontSize: 18.0,
+                            fontSize: 18.0.sp,
                             color: Colors.grey[500],
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 55),
+                        padding: const EdgeInsetsDirectional.only(start:5.0),
                         child: Container(
-                          width: 350,
-                          height: 40,
+                          width: 340.w,
+                          height: 40.h,
                           decoration: BoxDecoration(color: Colors.grey[350]),
                           child: defaultFormField(
                             controller: cubit.phoneController,
@@ -227,39 +228,36 @@ class _SignInScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 5),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 70),
-                        child: Text(
-                          'You may receive Whatsapp or SMS notfication from us',
-                          style: TextStyle(
-                            color: Colors.grey[500],
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      SizedBox(height: 5.h),
+                      Text(
+                        'You may receive Whatsapp or SMS notfication from us',
+                        style: TextStyle(
+                          color: Colors.grey[500],
+                          fontSize: 13.0.sp,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 250),
+                        padding: const EdgeInsetsDirectional.only(end: 190),
                         child: Text(
                           'Password Number',
                           style: TextStyle(
-                            fontSize: 18.0,
+                            fontSize: 18.0.sp,
                             color: Colors.grey[500],
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 55),
+                        padding: const EdgeInsetsDirectional.only(start: 5.0),
                         child: Container(
-                          width: 350,
-                          height: 45,
+                          width: 340.w,
+                          height: 40.h,
                           decoration: BoxDecoration(color: Colors.grey[350]),
                           child: defaultFormField(
                             controller: cubit.passwordController,
@@ -288,25 +286,25 @@ class _SignInScreenState extends State<SignUpScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 250),
+                        padding: const EdgeInsetsDirectional.only(end: 190),
                         child: Text(
                           'Confirm Password',
                           style: TextStyle(
-                            fontSize: 18.0,
+                            fontSize: 18.0.sp,
                             color: Colors.grey[500],
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 55),
+                        padding: const EdgeInsetsDirectional.only(start: 5.0),
                         child: Container(
-                          width: 350,
-                          height: 45,
+                          width: 340.w,
+                          height: 40.h,
                           decoration: BoxDecoration(color: Colors.grey[350]),
                           child: defaultFormField(
                             controller: cubit.confirmPasswordController,
@@ -335,25 +333,25 @@ class _SignInScreenState extends State<SignUpScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 280),
+                        padding: const EdgeInsetsDirectional.only(end: 230),
                         child: Text(
                           'Your Gender',
                           style: TextStyle(
-                            fontSize: 20.0,
+                            fontSize: 20.0.sp,
                             color: Colors.grey[500],
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 230),
+                        padding: const EdgeInsetsDirectional.only(end: 180),
                         child: Container(
-                          width: 180,
-                          height: 40,
+                          width: 180.w,
+                          height: 40.h,
                           decoration: BoxDecoration(
                             color: Colors.grey[300],
                             borderRadius: BorderRadius.circular(20),
@@ -371,7 +369,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                               Text(
                                 'Male',
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -379,12 +377,12 @@ class _SignInScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10.0),
+                      SizedBox(height: 10.0.h),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 230),
+                        padding: const EdgeInsetsDirectional.only(end: 180),
                         child: Container(
-                          width: 180,
-                          height: 40,
+                          width: 180.w,
+                          height: 40.h,
                           decoration: BoxDecoration(
                             color: Colors.grey[300],
                             borderRadius: BorderRadius.circular(20),
@@ -402,7 +400,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                               Text(
                                 'Female',
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -412,26 +410,26 @@ class _SignInScreenState extends State<SignUpScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 320),
+                        padding: const EdgeInsetsDirectional.only(end: 270),
                         child: Text(
                           'Birthday',
                           style: TextStyle(
-                            fontSize: 20.0,
+                            fontSize: 20.0.sp,
                             color: Colors.grey[500],
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 50),
+                        padding: const EdgeInsetsDirectional.only(start:5.0),
                         child: Container(
-                          width: 350,
-                          height: 40,
+                          width: 340.w,
+                          height: 40.h,
                           decoration: BoxDecoration(
                             color: Colors.grey[350], //el [] 3shan opacity
                           ),
@@ -444,16 +442,16 @@ class _SignInScreenState extends State<SignUpScreen> {
                               }
                               return null;
                             },
-                            lable: 'DD/MM/YYYY',
+                            lable: 'YYYY-MM-DD',
                           ),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   Container(
-                    width: 280,
-                    height: 60,
+                    width: 280.w,
+                    height: 60.h,
                     child: MaterialButton(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
@@ -462,7 +460,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                       child: Text(
                         'Enter',
                         style: TextStyle(
-                          fontSize: 30.0,
+                          fontSize: 30.0.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),

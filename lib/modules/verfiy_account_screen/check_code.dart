@@ -2,6 +2,7 @@ import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../shared/components/components.dart';
 
 class CheckCodeScreen extends StatefulWidget {
@@ -44,56 +45,55 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 300.0),
+                  padding: const EdgeInsetsDirectional.only(start: 280.0),
                   child: Text(
                     'CodeQuest',
                     style: TextStyle(
                       color: Colors.deepPurple,
                       fontStyle: FontStyle.italic,
-                      fontSize: 25.0,
+                      fontSize: 25.0.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: 10.0.h),
                 Center(
                   child: Text(
-                    'Forget Your Password',
+                    'Verfiy Your account',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 30.0,
+                      fontSize: 28.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SizedBox(height: 30.0),
+                SizedBox(height: 30.0.h),
                 Padding(
-                  padding: const EdgeInsetsDirectional.only(end: 80.0),
+                  padding: const EdgeInsetsDirectional.only(end: 65.0),
                   child: Text(
-                    'Check your SMS massage',
+                    'Check your Email massage',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 25.0,
+                      fontSize: 23.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SizedBox(height: 30.0),
+                SizedBox(height: 20.0.h),
                 Padding(
                   padding: const EdgeInsetsDirectional.only(start: 35.0),
                   child: Text(
-                    'We sent a code to your number. Enter that code to confirm your account.',
+                    'We sent a code to your Email. Enter that code to confirm your account.',
                     style: TextStyle(
                       color: Colors.grey[600],
-                      fontSize: 20.0,
+                      fontSize: 20.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SizedBox(height: 15.0),
+                SizedBox(height: 15.0.h),
                 Container(
-                  width: 400,
-                  decoration: BoxDecoration(color: Colors.grey[300]),
+                  width: 350.w,
                   child: defaultFormField(
                     max: 6,
                     controller: codeController,
@@ -107,23 +107,25 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
                     lable: 'Enter code',
                   ),
                 ),
-                SizedBox(height: 10),
                 Padding(
-                  padding: const EdgeInsetsDirectional.only(end: 200),
+                  padding: const EdgeInsetsDirectional.only(end: 210),
                   child: Text(
                     'Try another way',
                     style: TextStyle(
                       color: Colors.deepPurple,
-                      fontSize: 20.0,
+                      fontSize: 20.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SizedBox(height: 400),
+                SizedBox(height: 150.h),
                 Container(
-                  width: 200,
-                  height: 50,
-                  color: Colors.deepPurple,
+                  width: 230.w,
+                  height: 60.h,
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(50)
+                  ),
                   child: MaterialButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
@@ -135,8 +137,8 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
                       }
                     },
                     child: Text(
-                      'Next->',
-                      style: TextStyle(fontSize: 25, color: Colors.white),
+                      'Next ->',
+                      style: TextStyle(fontSize: 25.sp, color: Colors.white),
                     ),
                   ),
                 ),

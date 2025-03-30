@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../shared/components/components.dart';
-import '../check_code_screen/check_code.dart';
+import '../verfiy_account_screen/check_code.dart';
 
 class ForgetPasswordWithPhoneScreen extends StatefulWidget {
   @override

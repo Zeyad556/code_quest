@@ -26,10 +26,10 @@ class CerteficationScreen extends StatelessWidget {
               SizedBox(height: 15.0.h),
               Center(
                 child: Container(
-                  width: 500.w,
-                  height: 170.h,
+                  width: 340.w,
+                  height: 160.h,
                   decoration: BoxDecoration(
-                    color: Colors.grey[350],
+                    color: Colors.grey[300],
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
@@ -59,7 +59,7 @@ class CerteficationScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 140.0.w),
+                            SizedBox(width: 120.0.w),
                             Image.asset(
                               'assets/images/certified_logo.png',
                               width: 100.w,
@@ -76,6 +76,8 @@ class CerteficationScreen extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.grey[300],
+                              shadowColor: Colors.transparent,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -84,7 +86,7 @@ class CerteficationScreen extends StatelessWidget {
                               'Show',
                               style: TextStyle(
                                 color: Colors.deepPurple,
-                                fontSize: 16.0.sp,
+                                fontSize: 20.0.sp,
                               ),
                             ),
                           ),
