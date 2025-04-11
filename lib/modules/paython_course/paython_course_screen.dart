@@ -133,7 +133,7 @@ class PaythonCourseScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0.h),
                 Text(
-                  course.status ? "Success" : "Not Success",
+                  course.rate >= 65 ? "Success" : "Not Success",
                   style: TextStyle(
                     fontSize: 15.0.sp,
                     color: Colors.black,
@@ -168,7 +168,7 @@ class PaythonCourseScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(width: 10.0.w),
-                    course.status
+                    course.rate >= 65
                         ? ElevatedButton(
                           onPressed: () {},
                           child: Text(
