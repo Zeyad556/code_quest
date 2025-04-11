@@ -133,7 +133,7 @@ class PaythonCourseScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0.h),
                 Text(
-                  course.status ? "Completed" : "Not Completed",
+                  course.status ? "Success" : "Not Success",
                   style: TextStyle(
                     fontSize: 15.0.sp,
                     color: Colors.black,
@@ -156,8 +156,9 @@ class PaythonCourseScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+
                         Text(
-                          course.progress ? "Completed" : "Not Completed",
+                          course.rate >= 65 ? "Completed" : "Not Completed",
                           style: TextStyle(
                             fontSize: 20.0.sp,
                             color: Colors.deepPurple,
