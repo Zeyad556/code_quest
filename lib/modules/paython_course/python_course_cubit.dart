@@ -12,7 +12,11 @@ class PythonCourseCubit extends Cubit<PythonCourseState> {
 
   Future<void> courseProcess(int CourseId) async {
     emit(PythonCourseLoading());
-    var response = await http.get(Uri.parse("http://13.60.68.166:5000"));
+    var response = await http.get(
+      Uri.parse(
+        "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/1/lessons/progress?userId=10",
+      ),
+    );
     if (response.statusCode == 200) {
       var body = jsonDecode(response.body);
       List<pythonModel> course = [];
