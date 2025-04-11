@@ -1,6 +1,8 @@
 import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
+import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
 import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PrepareScreen extends StatelessWidget {
@@ -94,8 +96,16 @@ class PrepareScreen extends StatelessWidget {
                             width: 200.w,
                             height: 40.h,
                             child: ElevatedButton(
-                              onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>PaythonCourseScreen()));
+                              onPressed: () {
+                                context.read<PythonCourseCubit>().courseProcess(
+                                  1,
+                                );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PaythonCourseScreen(),
+                                  ),
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.deepPurple,

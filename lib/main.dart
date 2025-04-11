@@ -1,6 +1,7 @@
 import 'package:code_quest/counter_test/counter.dart';
 import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
+import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
 import 'package:code_quest/modules/paython_course/python_models/python_provider.dart';
 import 'package:code_quest/modules/prepare_screen/prepare.dart';
 import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
@@ -18,7 +19,7 @@ void main() {
       providers: [
         BlocProvider(create: (_) => LoginCubit()),
         BlocProvider(create: (_) => SignUpCubit()),
-        ChangeNotifierProvider(create: (_)=>pythonProvider(),)
+        BlocProvider(create: (_) => PythonCourseCubit()),
       ],
       child: MyApp(),
     ),
