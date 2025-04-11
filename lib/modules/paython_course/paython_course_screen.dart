@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../profile_screen/profile_screen.dart';
 
 class PaythonCourseScreen extends StatelessWidget {
-  double rate = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,130 +66,1005 @@ class PaythonCourseScreen extends StatelessWidget {
   }
 
   Widget buildCourseList(pythonModel course) {
-    return Column(
-      children: [
-        Container(
-          width: double.infinity.w,
-          height: 70.h,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          decoration: BoxDecoration(
-            color: Colors.deepPurple,
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
-            border: Border.all(
-              color: Colors.black, // Outline color
-              width: 1.2.w, // Thickness of the outline
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            width: double.infinity.w,
+            height: 70.h,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            decoration: BoxDecoration(
+              color: Colors.deepPurple,
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
+              border: Border.all(
+                color: Colors.black, // Outline color
+                width: 1.2.w, // Thickness of the outline
+              ),
             ),
-          ),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "Paython Course",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 25.sp,
-                color: Colors.white,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Paython Course",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25.sp,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-        ),
-        SizedBox(height: 40.h),
-        Container(
-          width: 330.0.w,
-          height: 160.0.h,
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(35.0),
-          ),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.symmetric(
-              vertical: 10,
-              horizontal: 20,
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  course.title,
-                  style: TextStyle(
-                    fontSize: 20.0.sp,
-                    color: Colors.deepPurple,
-                    fontWeight: FontWeight.bold,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                SizedBox(height: 10.0.h),
-                Text(
-                  course.status ? "Completed" : "Not Completed",
-                  style: TextStyle(
-                    fontSize: 15.0.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsetsDirectional.only(end: 20),
-                          child: Text(
-                            "Rate: ${course.rate.toDouble()}% ",
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
                             style: TextStyle(
-                              fontSize: 15.0.sp,
-                              color: Colors.black,
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
-                        Text(
-                          course.progress ? "Completed" : "Not Completed",
-                          style: TextStyle(
-                            fontSize: 20.0.sp,
-                            color: Colors.deepPurple,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(width: 25.0.w),
-                    course.status
-                        ? ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Take it again",
-                            style: TextStyle(fontSize: 16.0.sp),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(170.w, 40.h),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
                             ),
                           ),
-                        )
-                        : ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Take the lesson",
-                            style: TextStyle(fontSize: 16.0.sp),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(170.w, 40.h),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(height: 40.h),
+          Container(
+            width: 330.0.w,
+            height: 160.0.h,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(35.0),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    course.title,
+                    style: TextStyle(
+                      fontSize: 20.0.sp,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  Text(
+                    course.status ? "Completed" : "Not Completed",
+                    style: TextStyle(
+                      fontSize: 15.0.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(end: 20),
+                            child: Text(
+                              "Rate: ${course.rate.toDouble()}% ",
+                              style: TextStyle(
+                                fontSize: 15.0.sp,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            course.progress ? "Completed" : "Not Completed",
+                            style: TextStyle(
+                              fontSize: 20.0.sp,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 25.0.w),
+                      course.status
+                          ? ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take it again",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          )
+                          : ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Take the lesson",
+                              style: TextStyle(fontSize: 16.0.sp),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.deepPurple,
+                              foregroundColor: Colors.white,
+                              fixedSize: Size(170.w, 40.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
