@@ -22,13 +22,13 @@ class ApplyScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 22.0.sp,
                     fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
               SizedBox(height: 20.0.h),
               CourseCard(
-                courseName: 'Paython',
+                courseName: 'Python',
                 imagePath: 'assets/images/paython_logo.png',
                 fontSize: 22.sp,
                 width: 500.w,
