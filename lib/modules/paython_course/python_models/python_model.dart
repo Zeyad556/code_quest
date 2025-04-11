@@ -1,13 +1,40 @@
-class pythonModel {
-  late bool progress;
-  late double rate;
-  late bool status;
-  late String title;
-  pythonModel(this.progress, this.rate, this.status, this.title);
-  pythonModel.fromJson(Map<String, dynamic> map) {
-    this.progress = map["progress"];
-    this.rate = map["rate"];
-    this.status = map["status"];
-    this.title = map["title"];
-  }
+// To parse this JSON data, do
+//
+//     final pythonModel = pythonModelFromJson(jsonString);
+
+import 'dart:convert';
+
+List<PythonModel> pythonModelFromJson(String str) => List<PythonModel>.from(
+  json.decode(str).map((x) => PythonModel.fromJson(x)),
+);
+
+String pythonModelToJson(List<PythonModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+class PythonModel {
+  bool progress;
+  double rate;
+  bool status;
+  String title;
+
+  PythonModel({
+    required this.progress,
+    required this.rate,
+    required this.status,
+    required this.title,
+  });
+
+  factory PythonModel.fromJson(Map<String, dynamic> json) => PythonModel(
+    progress: json["progress"],
+    rate: json["rate"],
+    status: json["status"],
+    title: json["title"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "progress": progress,
+    "rate": rate,
+    "status": status,
+    "title": title,
+  };
 }

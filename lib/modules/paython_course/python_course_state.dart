@@ -8,7 +8,7 @@ final class PythonCourseInitial extends PythonCourseState {}
 final class PythonCourseLoading extends PythonCourseState {}
 
 final class PythonCourseLoaded extends PythonCourseState {
-  final List<pythonModel> courses;
+  final List<PythonModel> courses;
   PythonCourseLoaded({required this.courses});
 }
 
