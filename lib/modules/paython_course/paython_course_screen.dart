@@ -81,7 +81,6 @@ class PaythonCourseScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20.h),
                   Expanded(
                     child: ListView.builder(
                       itemCount: state.courses.length,
@@ -108,9 +107,9 @@ class PaythonCourseScreen extends StatelessWidget {
   Widget buildCourseItem(PythonModel course) {
     return Column(
       children: [
-        SizedBox(height: 40.h),
+        SizedBox(height: 20.h),
         Container(
-          width: 330.0.w,
+          width: 350.0.w,
           height: 160.0.h,
           decoration: BoxDecoration(
             color: Colors.grey[200],
@@ -167,7 +166,7 @@ class PaythonCourseScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(width: 25.0.w),
+                    SizedBox(width: 10.0.w),
                     course.status
                         ? ElevatedButton(
                           onPressed: () {},
@@ -178,7 +177,7 @@ class PaythonCourseScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.deepPurple,
                             foregroundColor: Colors.white,
-                            fixedSize: Size(170.w, 40.h),
+                            fixedSize: Size(160.w, 40.h),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -193,7 +192,7 @@ class PaythonCourseScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.deepPurple,
                             foregroundColor: Colors.white,
-                            fixedSize: Size(170.w, 40.h),
+                            fixedSize: Size(160.w, 40.h),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
