@@ -8,22 +8,28 @@ part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit() : super(ProfileInitial());
-  List<ProfileModel> data = [];
-  void Data(String name,String email,String phone,String birth) async{
-      emit(ProfileLoading());
-      final response = await http.get(Uri.parse("https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/profile/${phone}")
+
+  Future<void> getProfileData(String phoneNumber) async {
+    emit(ProfileLoading());
+    try {
+      var response = await http.get(
+        Uri.parse(
+          "https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/profile/${phoneNumber}",
+        ),
       );
-      if (response.statusCode == 200){
-        data = ProfileModelFromJson(response.body);
-        print("courses" + data.toString());
+      if (response.statusCode == 200) {
+        var jsonData = response.body;
+        ProfileModel data = profileModelFromJson(jsonData);
         emit(ProfileLoaded(profileData: data));
+        print(response.body);
         print("Cubit Success");
       } else {
-        print("Cubit Failure");
-
-        emit(ProfileFailure(error: "Failed to load courses"));
+        emit(ProfileFailure(error: 'Failed to load profile data'));
+        print("Cubit Failed");
+        print(response.body);
       }
-      }
+    } catch (e) {
+      emit(ProfileFailure(error: e.toString()));
     }
-
-
+  }
+}

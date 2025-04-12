@@ -33,7 +33,7 @@ class PrepareScreen extends StatelessWidget {
               Center(
                 child: Container(
                   width: 360.w,
-                  height: 260.h,
+                  height: 270.h,
                   decoration: BoxDecoration(
                     color: Colors.grey[350],
                     borderRadius: BorderRadius.circular(20.0),

@@ -1,7 +1,9 @@
 import 'package:code_quest/modules/apply_screen/apply_screen.dart';
 import 'package:code_quest/modules/prepare_screen/prepare.dart';
+import 'package:code_quest/modules/profile_screen/profile_cubit.dart';
 import 'package:code_quest/modules/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../certefication_screen/certefication.dart';
@@ -26,6 +28,7 @@ class _ApplyScreenState extends State<HomeScreen> {
               child: IconButton(
                 icon: Icon(Icons.account_circle, color: Colors.white, size: 40),
                 onPressed: () {
+                  context.read<ProfileCubit>().getProfileData("01170911564");
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ProfileScreen()),

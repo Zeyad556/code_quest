@@ -90,7 +90,6 @@ class CourseCard extends StatelessWidget {
     required this.buttonWidth,
     required this.sizedheight,
     required this.buttonWord,
-
   });
 
   @override
@@ -170,7 +169,8 @@ class CourseCard extends StatelessWidget {
     );
   }
 }
-Widget profileDetail(String title, String value) {
+
+Widget profileDetailCard(String title, String value) {
   return Padding(
     padding: const EdgeInsetsDirectional.only(end: 90.0, top: 10.0),
     child: Column(
@@ -201,6 +201,7 @@ Widget divider() {
     child: Divider(color: Colors.grey),
   );
 }
+
 Widget buildProfileField(String label, String value, {bool isBold = false}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 5),
@@ -211,7 +212,11 @@ Widget buildProfileField(String label, String value, {bool isBold = false}) {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
             label,
-            style: TextStyle(fontSize: 14.sp, color: Colors.black,fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 14.sp,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         Container(
@@ -230,11 +235,7 @@ Widget buildProfileField(String label, String value, {bool isBold = false}) {
             ),
           ),
         ),
-        Container(
-          width: double.infinity,
-          height: 1,
-          color: Colors.black,
-        )
+        Container(width: double.infinity, height: 1, color: Colors.black),
       ],
     ),
   );

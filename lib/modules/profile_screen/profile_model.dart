@@ -1,38 +1,46 @@
 // To parse this JSON data, do
 //
-//     final pythonModel = pythonModelFromJson(jsonString);
+//     final profileModel = profileModelFromJson(jsonString);
+
 import 'dart:convert';
 
-List<ProfileModel> ProfileModelFromJson(String str) => List<ProfileModel>.from(
-  json.decode(str).map((x) => ProfileModel.fromJson(x)),
-);
+ProfileModel profileModelFromJson(String str) =>
+    ProfileModel.fromJson(json.decode(str));
 
-String ProfileModelToJson(List<ProfileModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String profileModelToJson(ProfileModel data) => json.encode(data.toJson());
 
 class ProfileModel {
-  String name;
+  int id;
+  String firstName;
+  String lastName;
   String email;
-  String phone;
-  String birth;
+  String phoneNum;
+  String birthDate;
+
   ProfileModel({
-    required this.name,
+    required this.id,
+    required this.firstName,
+    required this.lastName,
     required this.email,
-    required this.phone,
-    required this.birth,
+    required this.phoneNum,
+    required this.birthDate,
   });
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) => ProfileModel(
-    name: json["name"],
+    id: json["id"],
+    firstName: json["firstName"],
+    lastName: json["lastName"],
     email: json["email"],
-    phone: json["phone"],
-    birth: json["birth"],
+    phoneNum: json["phoneNum"],
+    birthDate: json["birthDate"],
   );
 
   Map<String, dynamic> toJson() => {
-    "name": name,
+    "id": id,
+    "firstName": firstName,
+    "lastName": lastName,
     "email": email,
-    "phone": phone,
-    "birth": birth,
+    "phoneNum": phoneNum,
+    "birthDate": birthDate,
   };
 }
