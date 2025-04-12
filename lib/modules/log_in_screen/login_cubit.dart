@@ -12,7 +12,7 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       emit(LoginLoading());
       final response = await dio.post(
-        "https://usermangment-codequest-0fbfa624afb1.herokuapp.com/auth/login",
+        "https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/login",
         data: {"phoneNum": phone, "password": password},
       );
       if (response.statusCode == 200) {

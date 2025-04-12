@@ -33,7 +33,7 @@ class PrepareScreen extends StatelessWidget {
               Center(
                 child: Container(
                   width: 360.w,
-                  height: 270.h,
+                  height: 260.h,
                   decoration: BoxDecoration(
                     color: Colors.grey[350],
                     borderRadius: BorderRadius.circular(20.0),
@@ -57,7 +57,7 @@ class PrepareScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsetsDirectional.only(end: 250.0),
                           child: Text(
-                            'Paython',
+                            'Python',
                             style: TextStyle(
                               fontSize: 25.sp,
                               fontWeight: FontWeight.bold,

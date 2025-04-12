@@ -47,7 +47,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         formKey.currentState!.save();
         emit(SignUpLoading());
         dio.post(
-          "https://usermangment-codequest-0fbfa624afb1.herokuapp.com/auth/register",
+          "https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/register",
           data: {
             "firstName": firstNameController.text,
             "lastName": lastNameController.text,
@@ -68,7 +68,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   void verfiyOtp(BuildContext context, String email, int otp) async {
     try {
       final response = await dio.post(
-        'https://usermangment-codequest-0fbfa624afb1.herokuapp.com/auth/verify-otp',
+        "https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/verify-otp",
         queryParameters: {"email": email, "otp": otp},
       );
       if (response.statusCode == 200) {

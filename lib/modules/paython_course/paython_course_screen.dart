@@ -158,7 +158,7 @@ class PaythonCourseScreen extends StatelessWidget {
                         ),
 
                         Text(
-                          course.rate >= 65 ? "Completed" : "Not Completed",
+                          course.status == true ? "Taken" : "Not Taken",
                           style: TextStyle(
                             fontSize: 20.0.sp,
                             color: Colors.deepPurple,
