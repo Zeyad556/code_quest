@@ -65,7 +65,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     }
   }
 
-  void verfiyOtp(BuildContext context, String email, String otp) async {
+  void verfiyOtp(BuildContext context, String email, int otp) async {
     try {
       final response = await dio.post(
         "https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/verify-otp",

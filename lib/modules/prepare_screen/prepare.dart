@@ -98,7 +98,7 @@ class PrepareScreen extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () {
                                 context.read<PythonCourseCubit>().courseProcess(
-                                  13,
+                                  14,
                                 );
                                 Navigator.push(
                                   context,
