@@ -9,6 +9,7 @@ import 'Intro_model.dart';
 class IntroLessonScreen extends StatelessWidget {
   IntroLessonScreen({super.key});
   final List<String> answers = ['A) 1991', 'B) 1985', 'C) 1993', 'D) 1999'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,37 +48,40 @@ class IntroLessonScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity.w,
-            height: 70.h,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-            decoration: BoxDecoration(
-              color: Colors.deepPurple,
-              borderRadius: BorderRadius.vertical(
-                bottom: Radius.circular(40),
-              ),
-              border: Border.all(
-                color: Colors.black, // Outline color
-                width: 1.2.w, // Thickness of the outline
-              ),
-            ),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Paython . Introduction",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25.sp,
-                  color: Colors.white,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: SingleChildScrollView(
+          // Wrap entire body in SingleChildScrollView
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity.w,
+                height: 70.h,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(40),
+                  ),
+                  border: Border.all(
+                    color: Colors.black, // Outline color
+                    width: 1.2.w, // Thickness of the outline
+                  ),
+                ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Python . Introduction",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25.sp,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-          SizedBox(height: 50.h),
-          Column(
-            children: [
+              SizedBox(height: 50.h),
               Padding(
                 padding: const EdgeInsetsDirectional.only(end: 150),
                 child: Text(
@@ -150,24 +154,23 @@ class IntroLessonScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(
-                child: SizedBox(
-                  height: double.infinity,
-                  width: double.infinity,
-                  child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: answers.length,
-                    itemBuilder: (context, index) {
-                      return Container(color: Colors.grey,
-                      child: Text(answers[index]),
-                      );
-                    },
-                  ),
-                ),
+              SizedBox(height: 30.h),
+              // Replaced Expanded with ListView without wrapping inside an Expanded
+              ListView.builder(
+                shrinkWrap:
+                    true, // Allows ListView to take only necessary space
+                physics: NeverScrollableScrollPhysics(), // Prevent scrolling
+                itemCount: answers.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    color: Colors.grey,
+                    child: Text(answers[index]),
+                  );
+                },
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
