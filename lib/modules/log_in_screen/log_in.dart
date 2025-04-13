@@ -24,9 +24,10 @@ class _LogInScreenState extends State<LogInScreen> {
       body: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
-            Navigator.pushReplacement(
+            Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => HomeScreen()),
+              (route) => false,
             );
           } else if (state is LoginFailure) {
             ScaffoldMessenger.of(
