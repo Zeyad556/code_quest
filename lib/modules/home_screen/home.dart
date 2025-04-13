@@ -5,7 +5,6 @@ import 'package:code_quest/modules/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../certefication_screen/certefication.dart';
 
 class HomeScreen extends StatefulWidget {

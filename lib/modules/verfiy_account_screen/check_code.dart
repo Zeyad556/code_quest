@@ -132,7 +132,7 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
                         cubit.verfiyOtp(
                           context,
                           cubit.emailController.text,
-                          int.parse(codeController.text),
+                          codeController.text,
                         );
                       }
                     },

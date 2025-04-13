@@ -129,7 +129,10 @@ class ProfileScreen extends StatelessWidget {
               padding: const EdgeInsetsDirectional.only(top: 10.0),
               child: Column(
                 children: [
-                  profileDetailCard('Email', profileData.email),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(end: 20.0),
+                    child: profileDetailCard('Email', profileData.email),
+                  ),
                   SizedBox(height: 10.0.h),
                   Container(width: 300, height: 1.0, color: Colors.grey[500]),
                   Padding(
