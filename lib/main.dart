@@ -1,5 +1,6 @@
 import 'package:code_quest/counter_test/counter.dart';
 import 'package:code_quest/modules/home_screen/home.dart';
+import 'package:code_quest/modules/intro_lesson_screen/intro_lesson_screen.dart';
 import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
 import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
 import 'package:code_quest/modules/prepare_screen/prepare.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(debugShowCheckedModeBanner: false, home: child);
       },
-      child: WelcomeScreen(),
+      child: IntroLessonScreen(),
     );
   }
 }
