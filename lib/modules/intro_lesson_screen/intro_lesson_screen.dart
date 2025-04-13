@@ -162,9 +162,15 @@ class IntroLessonScreen extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(), // Prevent scrolling
                 itemCount: answers.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    color: Colors.grey,
-                    child: Text(answers[index]),
+                  return Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(vertical: 5,horizontal: 5),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(30)
+                      ),
+                      child: Text(answers[index]),
+                    ),
                   );
                 },
               ),

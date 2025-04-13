@@ -1,6 +1,7 @@
 import 'package:code_quest/modules/edit_profile_screen/edit_profile.dart';
 import 'package:code_quest/modules/profile_screen/profile_cubit.dart';
 import 'package:code_quest/modules/profile_screen/profile_model.dart';
+import 'package:code_quest/modules/welcome_screen/welcome.dart';
 import 'package:code_quest/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -197,22 +198,33 @@ class ProfileScreen extends StatelessWidget {
                   width: 150.0.w,
                   height: 40.0.h,
                   child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WelcomeScreen(),
+                        ),
+                        (route) => false,
+                      );
+                    },
                     style: OutlinedButton.styleFrom(
                       foregroundColor:
                           Colors.deepPurple, // Text and border color
                       side: BorderSide(
                         color: Colors.deepPurple,
+                        width: 4.w,
                       ), // Border color
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
+                    ),
+                    child: Text(
+                      "Log out",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                    child: Text("Log out"),
                   ),
                 ),
               ],
