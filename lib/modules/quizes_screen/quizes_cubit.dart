@@ -1,36 +1,27 @@
-//
-// import 'package:code_quest/modules/quizes_screen/quizes_model.dart';
-// import 'package:code_quest/modules/quizes_screen/quizes_state.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-//
-// class QuizCubit extends Cubit<QuizState> {
-//   QuizCubit()
-//       : super(QuizLoaded(
-//     quiz: QuizesModel(
-//       question: "When was Python created?",
-//       answer: ['A) 1991', 'B) 1985', 'C) 1993', 'D) 1999'],
-//       correctAnswer: 'A) 1991',
-//     ),
-//   ));
-//
-//   void selectAnswer(String answer) {
-//     if (state is QuizLoaded) {
-//       emit((state as QuizLoaded).copyWith(selectedAnswer: answer));
-//     }
-//   }
-//
-//   void submitAnswer() {
-//     if (state is QuizLoaded) {
-//       emit((state as QuizLoaded).copyWith(isSubmitted: true));
-//     }
-//   }
-//
-//   void resetQuiz() {
-//     if (state is QuizLoaded) {
-//       emit((state as QuizLoaded).copyWith(
-//         selectedAnswer: null,
-//         isSubmitted: false,
-//       ));
-//     }
-//   }
-// }
+import 'dart:convert';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dio/dio.dart';
+import 'quizes_model.dart';
+import 'quizes_state.dart';
+
+class QuizesCubit extends Cubit<QuizesState> {
+  QuizesCubit() : super(QuizesInitial());
+
+  final Dio _dio = Dio();
+
+  Future<void> fetchQuizes() async {
+    emit(QuizesLoading());
+    try {
+      final response = await _dio.get('https://course-codequest-215c3c02f593.herokuapp.com/api/courses/lessons/1/quzzis'); //api
+      if (response.statusCode == 200) {
+        final quizes = QuizesModelFromJson(jsonEncode(response.data));
+        emit(QuizesLoaded(quizes));
+      } else {
+        print("Cubit Failure");
+      }
+    } catch (e) {
+      emit(QuizesFailure(error: "Failed to load courses"));
+    }
+  }
+}
