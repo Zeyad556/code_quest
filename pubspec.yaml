@@ -36,6 +36,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.3
   flutter_screenutil: ^5.9.3
+  cherry_toast: ^1.12.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0
