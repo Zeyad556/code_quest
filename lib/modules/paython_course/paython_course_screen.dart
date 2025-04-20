@@ -4,9 +4,15 @@ import 'package:code_quest/modules/profile_screen/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../lessons_screen/lessons_screen.dart';
 import '../profile_screen/profile_screen.dart';
 
-class PaythonCourseScreen extends StatelessWidget {
+class PaythonCourseScreen extends StatefulWidget {
+  @override
+  State<PaythonCourseScreen> createState() => _PaythonCourseScreenState();
+}
+
+class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,7 +178,9 @@ class PaythonCourseScreen extends StatelessWidget {
                     SizedBox(width: 10.0.w),
                     course.rate >= 65
                         ? ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+
+                          },
                           child: Text(
                             "Take it again",
                             style: TextStyle(fontSize: 16.0.sp),
@@ -187,7 +195,10 @@ class PaythonCourseScreen extends StatelessWidget {
                           ),
                         )
                         : ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context , MaterialPageRoute(builder:(context) => LessonScreen()));
+                          },
                           child: Text(
                             "Take the lesson",
                             style: TextStyle(fontSize: 16.0.sp),

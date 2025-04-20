@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ApplyScreen extends StatelessWidget {
-  const ApplyScreen({super.key});
-
+String image='paython_logo';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +28,7 @@ class ApplyScreen extends StatelessWidget {
               SizedBox(height: 20.0.h),
               CourseCard(
                 courseName: 'Python',
-                imagePath: 'assets/images/paython_logo.png',
+                imagePath: 'assets/images/'+image+'.png',
                 fontSize: 22.sp,
                 width: 500.w,
                 height: 160.h,

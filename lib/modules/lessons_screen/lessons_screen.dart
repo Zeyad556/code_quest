@@ -1,0 +1,143 @@
+import 'package:code_quest/modules/quizes_screen/quizes_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../paython_course/paython_course_screen.dart';
+import '../profile_screen/profile_cubit.dart';
+import '../profile_screen/profile_screen.dart';
+
+class LessonScreen extends StatelessWidget {
+  final List<String> answers = ['A) 1991', 'B) 1985', 'C) 1993', 'D) 1999'];
+  String text = "Python is a popular programming language.";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity.w,
+                height: 100.h,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(40),
+                  ),
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 1.2.w,
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(top: 40),
+                  child: Center(
+                    child: Text(
+                      "Python . Introduction",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25.sp,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 50.h),
+              Padding(
+                padding: const EdgeInsetsDirectional.only(end: 150),
+                child: Text(
+                  "What is Python?",
+                  style: TextStyle(
+                    fontSize: 27.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              SizedBox(height: 50.h),
+              text.isNotEmpty?Center(
+                child: Container(
+                  width: 350.w,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[400],
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      text, style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ): SizedBox.shrink(), // returns an invisible zero-sized widget
+              SizedBox(height: 80.h), // To avoid overlap with bottomNavigationBar
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              width: 118.w,
+              height: 34.h,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => PaythonCourseScreen()),
+                        (route) => false,
+                  );
+                },
+                child: Text(
+                  "<  Back",
+                  style: TextStyle(
+                    color: Colors.deepPurple,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.sp,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  side: BorderSide(
+                    color: Colors.deepPurple,
+                    width: 4,
+                  ),
+                  backgroundColor: Colors.white,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 120.w,
+              height: 34.h,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>QuizesScreen()));
+                },
+                child: Text(
+                  "Next  >",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.sp,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepPurple,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+
+  }
+}
