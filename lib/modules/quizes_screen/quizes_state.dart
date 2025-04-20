@@ -9,7 +9,10 @@ class QuizzesInitial extends QuizzesState {}
 class QuizzesLoading extends QuizzesState {}
 
 class QuizzesLoaded extends QuizzesState {}
+
 class QuizzesSuccess extends QuizzesState {}
+
+class QuizzesScoreLoading extends QuizzesState {}
 
 class QuizzesInc extends QuizzesState {}
 

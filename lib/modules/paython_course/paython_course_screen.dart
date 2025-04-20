@@ -14,6 +14,13 @@ class PaythonCourseScreen extends StatefulWidget {
 
 class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
   @override
+
+  void initState(){
+    context.read<PythonCourseCubit>().courseProcess(19);
+    super.initState();
+
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

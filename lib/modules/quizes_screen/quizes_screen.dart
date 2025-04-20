@@ -1,5 +1,8 @@
 import 'dart:ffi';
 
+import 'package:cherry_toast/cherry_toast.dart';
+import 'package:code_quest/cherryToast/CherryToastMsgs.dart';
+import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +16,6 @@ class QuizesScreen extends StatefulWidget {
 }
 
 class _QuizesScreenState extends State<QuizesScreen> {
-
   String? selectedAnswer;
 
   @override
@@ -27,9 +29,30 @@ class _QuizesScreenState extends State<QuizesScreen> {
     return BlocProvider(
       create: (_) => QuizzesCubit()..QuizProcess(),
       child: Scaffold(
-        body: BlocBuilder<QuizzesCubit, QuizzesState>(
+        body: BlocConsumer<QuizzesCubit, QuizzesState>(
+          listener: (context, state) {
+            if (state is QuizzesScoreLoading) {
+              CherryToastMsgs.CherryToastVerified(
+                context: context,
+                title: "Quiz",
+                description: "Now for your result",
+              ).show(context);
+            }
+            if (state is QuizzesSuccess) {
+              CherryToastMsgs.CherryToastSuccess(
+                context: context,
+                title: "Quiz",
+                description: "Good Job!!",
+              ).show(context);
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => PaythonCourseScreen()),
+                (route) => false,
+              );
+            }
+          },
           builder: (context, state) {
-            final questions=context.read<QuizzesCubit>();
+            final questions = context.read<QuizzesCubit>();
             if (state is QuizzesLoading) {
               return Center(child: CircularProgressIndicator());
             } else if (state is QuizzesLoaded) {
@@ -45,7 +68,10 @@ class _QuizesScreenState extends State<QuizesScreen> {
                     Container(
                       width: double.infinity.w,
                       height: 100.h,
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 8,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.deepPurple,
                         borderRadius: BorderRadius.vertical(
@@ -57,7 +83,7 @@ class _QuizesScreenState extends State<QuizesScreen> {
                         padding: const EdgeInsetsDirectional.only(top: 40),
                         child: Center(
                           child: Text(
-                           "python intro",
+                            "python intro",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 28.sp,
@@ -67,25 +93,29 @@ class _QuizesScreenState extends State<QuizesScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20.0.h,),
+                    SizedBox(height: 20.0.h),
                     Container(
                       width: 350.w,
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 8,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(20)
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      child:  Text(
-                          currentQuiz.question,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30.sp,
-                            color: Colors.black,
-                          ),
+                      child: Text(
+                        currentQuiz.question,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30.sp,
+                          color: Colors.black,
                         ),
                       ),
+                    ),
                     // Optional Code Container
-                    if (currentQuiz.code != null && currentQuiz.code.toString().trim().isNotEmpty)
+                    if (currentQuiz.code != null &&
+                        currentQuiz.code.toString().trim().isNotEmpty)
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: Container(
@@ -116,7 +146,10 @@ class _QuizesScreenState extends State<QuizesScreen> {
                       itemBuilder: (context, index) {
                         final answer = currentQuiz.answer[index];
                         return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 15,
+                            vertical: 10,
+                          ),
                           child: RadioListTile<String>(
                             value: answer,
                             groupValue: selectedAnswer,
@@ -130,17 +163,24 @@ class _QuizesScreenState extends State<QuizesScreen> {
                               style: TextStyle(
                                 fontSize: 25.sp,
                                 fontWeight: FontWeight.bold,
-                                color: selectedAnswer == answer ? Colors.black : Colors.white,
+                                color:
+                                    selectedAnswer == answer
+                                        ? Colors.black
+                                        : Colors.white,
                               ),
                             ),
                             activeColor: Colors.black,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            tileColor: selectedAnswer == answer
-                                ? Color.fromARGB(200, 65, 8, 70)
-                                : Colors.deepPurple,
-                            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: -20),
+                            tileColor:
+                                selectedAnswer == answer
+                                    ? Color.fromARGB(200, 65, 8, 70)
+                                    : Colors.deepPurple,
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: -20,
+                            ),
                           ),
                         );
                       },
@@ -148,7 +188,10 @@ class _QuizesScreenState extends State<QuizesScreen> {
 
                     SizedBox(height: 20),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 110),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 40,
+                        horizontal: 110,
+                      ),
                       child: SizedBox(
                         height: 40.h,
                         child: ElevatedButton(
@@ -156,15 +199,20 @@ class _QuizesScreenState extends State<QuizesScreen> {
                           onPressed: () {
                             final state = context.read<QuizzesCubit>().state;
                             if (state is QuizzesLoaded) {
-                              if(selectedAnswer!=null){
-                                questions.selectedAnswers?.add(selectedAnswer![0] as Char);
-                                if(questions.quiz.length-1==questions.questionIndex){
+                              if (selectedAnswer != null) {
+                                questions.selectedAnswers?.add(
+                                  selectedAnswer![0],
+                                );
+                                if (questions.quiz.length - 1 ==
+                                    questions.questionIndex) {
                                   questions.call();
-                                }else{
+                                } else {
                                   print(questions.questionIndex);
                                   print(selectedAnswer);
-                                 questions.IncCounter();
+                                  questions.IncCounter();
                                 }
+                                selectedAnswer = null;
+                                print(questions.selectedAnswers);
                               }
                             }
                           },
@@ -176,7 +224,9 @@ class _QuizesScreenState extends State<QuizesScreen> {
                               fontSize: 18.sp,
                             ),
                           ),
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.deepPurple,
+                          ),
                         ),
                       ),
                     ),
@@ -184,7 +234,9 @@ class _QuizesScreenState extends State<QuizesScreen> {
                 ),
               );
             } else if (state is QuizzesFailure) {
-              return Center(child: Text("Failed to load quizzes: ${state.error}"));
+              return Center(
+                child: Text("Failed to load quizzes: ${state.error}"),
+              );
             } else {
               return Center(child: Text("Welcome to the Quiz!"));
             }
