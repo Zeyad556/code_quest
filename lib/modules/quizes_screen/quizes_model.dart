@@ -15,14 +15,12 @@ class QuizesModel {
   String question;
   dynamic code;
   List<String> answer;
-  String correctAnswer;
 
   QuizesModel({
     required this.quizId,
     required this.question,
     required this.code,
     required this.answer,
-    required this.correctAnswer,
   });
 
   factory QuizesModel.fromJson(Map<String, dynamic> json) => QuizesModel(
@@ -30,7 +28,6 @@ class QuizesModel {
     question: json["question"],
     code: json["code"],
     answer: List<String>.from(json["answer"].map((x) => x)),
-    correctAnswer: json["correct_answer"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -38,6 +35,5 @@ class QuizesModel {
     "question": question,
     "code": code,
     "answer": List<dynamic>.from(answer.map((x) => x)),
-    "correct_answer": correctAnswer,
   };
 }

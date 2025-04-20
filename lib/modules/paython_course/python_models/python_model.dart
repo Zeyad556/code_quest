@@ -16,12 +16,14 @@ class PythonModel {
   double rate;
   bool status;
   String title;
+  int Id;
 
   PythonModel({
     required this.progress,
     required this.rate,
     required this.status,
     required this.title,
+    required this.Id,
   });
 
   factory PythonModel.fromJson(Map<String, dynamic> json) => PythonModel(
@@ -29,6 +31,7 @@ class PythonModel {
     rate: json["rate"],
     status: json["status"],
     title: json["title"],
+    Id: json["id"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -36,5 +39,6 @@ class PythonModel {
     "rate": rate,
     "status": status,
     "title": title,
+    "id": Id,
   };
 }

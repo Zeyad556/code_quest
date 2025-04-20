@@ -21,7 +21,7 @@ void main() {
         BlocProvider(create: (_) => SignUpCubit()),
         BlocProvider(create: (_) => PythonCourseCubit()),
         BlocProvider(create: (_) => ProfileCubit()),
-        // BlocProvider(create: (_) => QuizesCubit()),
+        BlocProvider(create: (_) => QuizzesCubit()),
       ],
       child: MyApp(),
     ),

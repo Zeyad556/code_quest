@@ -176,42 +176,30 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                       ],
                     ),
                     SizedBox(width: 10.0.w),
-                    course.rate >= 65
-                        ? ElevatedButton(
-                          onPressed: () {
-
-                          },
-                          child: Text(
-                            "Take it again",
-                            style: TextStyle(fontSize: 16.0.sp),
+                    ElevatedButton(
+                      onPressed: () {
+                        PythonCourseCubit.num=course.Id;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LessonScreen(),
                           ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(160.w, 40.h),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        )
-                        : ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context , MaterialPageRoute(builder:(context) => LessonScreen()));
-                          },
-                          child: Text(
-                            "Take the lesson",
-                            style: TextStyle(fontSize: 16.0.sp),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
-                            foregroundColor: Colors.white,
-                            fixedSize: Size(160.w, 40.h),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
+                        );
+                      },
+                      child: Text(
+                        course.rate >= 65 ? "Take It again" : "Take the lesson",
+                        style: TextStyle(fontSize: 16.0.sp),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            course.rate >= 65 ? Colors.red : Colors.deepPurple,
+                        foregroundColor: Colors.white,
+                        fixedSize: Size(160.w, 40.h),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
+                      ),
+                    ),
                   ],
                 ),
               ],

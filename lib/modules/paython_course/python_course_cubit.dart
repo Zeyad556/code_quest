@@ -7,6 +7,7 @@ import 'package:meta/meta.dart';
 part 'python_course_state.dart';
 
 class PythonCourseCubit extends Cubit<PythonCourseState> {
+  static int num=0;
   PythonCourseCubit() : super(PythonCourseInitial());
   List<PythonModel> course = [];
 

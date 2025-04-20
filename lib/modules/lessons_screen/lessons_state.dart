@@ -1,6 +1,20 @@
-part of 'lessons_cubit.dart';
+import 'lessons_model.dart';
 
-@immutable
 sealed class LessonsState {}
 
 final class LessonsInitial extends LessonsState {}
+
+final class LessonsLoading extends LessonsState {}
+
+final class LessonsIncCounter extends LessonsState {}
+
+final class LessonsDecCounter extends LessonsState {}
+
+final class LessonsLoaded extends LessonsState {
+
+}
+
+final class LessonsFailure extends LessonsState {
+  final String error;
+  LessonsFailure({required this.error});
+}

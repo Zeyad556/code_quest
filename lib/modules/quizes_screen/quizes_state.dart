@@ -8,10 +8,12 @@ class QuizzesInitial extends QuizzesState {}
 
 class QuizzesLoading extends QuizzesState {}
 
-class QuizzesLoaded extends QuizzesState {
-  final List<QuizesModel> quizzes;
-  QuizzesLoaded({required this.quizzes});
-}
+class QuizzesLoaded extends QuizzesState {}
+class QuizzesSuccess extends QuizzesState {}
+
+class QuizzesInc extends QuizzesState {}
+
+class QuizzesDec extends QuizzesState {}
 
 class QuizzesFailure extends QuizzesState {
   final String error;
