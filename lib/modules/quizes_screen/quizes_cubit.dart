@@ -1,27 +1,29 @@
-import 'dart:convert';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dio/dio.dart';
-import 'quizes_model.dart';
-import 'quizes_state.dart';
+import 'package:bloc/bloc.dart';
+import 'package:code_quest/modules/quizes_screen/quizes_model.dart';
+import 'package:code_quest/modules/quizes_screen/quizes_state.dart';
+import 'package:http/http.dart' as http;
 
-class QuizesCubit extends Cubit<QuizesState> {
-  QuizesCubit() : super(QuizesInitial());
 
-  final Dio _dio = Dio();
+class QuizzesCubit extends Cubit<QuizzesState> {
+  QuizzesCubit() : super(QuizzesInitial());
+  List<QuizesModel> quiz = [];
 
-  Future<void> fetchQuizes() async {
-    emit(QuizesLoading());
-    try {
-      final response = await _dio.get('https://course-codequest-215c3c02f593.herokuapp.com/api/courses/lessons/1/quzzis'); //api
-      if (response.statusCode == 200) {
-        final quizes = QuizesModelFromJson(jsonEncode(response.data));
-        emit(QuizesLoaded(quizes));
-      } else {
-        print("Cubit Failure");
-      }
-    } catch (e) {
-      emit(QuizesFailure(error: "Failed to load courses"));
+  Future<void> QuizProcess() async {
+    emit(QuizzesLoading());
+    var response = await http.get(
+      Uri.parse(
+        "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/lessons/1/quzzis",
+      ),
+    );
+    if (response.statusCode == 200) {
+      quiz = QuizesModelFromJson(response.body);
+      print("Quizzes" + quiz.toString());
+      emit(QuizzesLoaded(quizzes: quiz));
+      print("Cubit Success");
+    } else {
+      print("Cubit Failure");
+
+      emit(QuizzesFailure(error: "Failed to load courses"));
     }
   }
 }

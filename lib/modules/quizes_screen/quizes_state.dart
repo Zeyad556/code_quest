@@ -1,22 +1,19 @@
-// quizes_state.dart
 import 'package:flutter/foundation.dart';
 import 'quizes_model.dart';
 
 @immutable
-abstract class QuizesState {}
+abstract class QuizzesState {}
 
-class QuizesInitial extends QuizesState {}
+class QuizzesInitial extends QuizzesState {}
 
-class QuizesLoading extends QuizesState {}
+class QuizzesLoading extends QuizzesState {}
 
-class QuizesLoaded extends QuizesState {
-  final List<QuizesModel> quizes;
-
-  QuizesLoaded(this.quizes);
+class QuizzesLoaded extends QuizzesState {
+  final List<QuizesModel> quizzes;
+  QuizzesLoaded({required this.quizzes});
 }
 
-class QuizesFailure extends QuizesState {
+class QuizzesFailure extends QuizzesState {
   final String error;
-
-  QuizesFailure({required this.error});
+  QuizzesFailure({required this.error});
 }

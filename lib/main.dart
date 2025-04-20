@@ -1,9 +1,9 @@
-import 'package:code_quest/counter_test/counter.dart';
 import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
 import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
 import 'package:code_quest/modules/prepare_screen/prepare.dart';
 import 'package:code_quest/modules/profile_screen/profile_cubit.dart';
+import 'package:code_quest/modules/quizes_screen/quizes_cubit.dart';
 import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
 import 'package:code_quest/modules/verfiy_account_screen/check_code.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +21,7 @@ void main() {
         BlocProvider(create: (_) => SignUpCubit()),
         BlocProvider(create: (_) => PythonCourseCubit()),
         BlocProvider(create: (_) => ProfileCubit()),
+        // BlocProvider(create: (_) => QuizesCubit()),
       ],
       child: MyApp(),
     ),

@@ -1,38 +1,43 @@
-import 'package:flutter/material.dart';
+// To parse this JSON data, do
+//
+//     final welcome = welcomeFromJson(jsonString);
+
 import 'dart:convert';
-List<QuizesModel> QuizesModelFromJson(String str) => List<QuizesModel>.from(
-  json.decode(str).map((x) => QuizesModel.fromJson(x)),
-);
+
+List<QuizesModel> QuizesModelFromJson(String str) =>
+    List<QuizesModel>.from(json.decode(str).map((x) => QuizesModel.fromJson(x)));
 
 String QuizesModelToJson(List<QuizesModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class QuizesModel {
-  final int quizId;
-  final String question;
-  final String code;
-  final List<String> answer;
-  final String correct_answer;
+  int quizId;
+  String question;
+  dynamic code;
+  List<String> answer;
+  String correctAnswer;
 
   QuizesModel({
-    required this.question,
-    required this.answer,
-    required this.correct_answer,
     required this.quizId,
+    required this.question,
     required this.code,
+    required this.answer,
+    required this.correctAnswer,
   });
+
   factory QuizesModel.fromJson(Map<String, dynamic> json) => QuizesModel(
-    question: json["progress"],
-    answer: json["answer"],
-    correct_answer: json["correct_answer"],
     quizId: json["quizId"],
+    question: json["question"],
     code: json["code"],
+    answer: List<String>.from(json["answer"].map((x) => x)),
+    correctAnswer: json["correct_answer"],
   );
 
   Map<String, dynamic> toJson() => {
-    "question": question,
-    "answer": answer,
-    "correct_answer": correct_answer,
     "quizId": quizId,
+    "question": question,
     "code": code,
+    "answer": List<dynamic>.from(answer.map((x) => x)),
+    "correct_answer": correctAnswer,
   };
 }
