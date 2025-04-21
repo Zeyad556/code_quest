@@ -1,7 +1,9 @@
+import 'package:code_quest/modules/courses_apply_screen/courses_apply_cubit.dart';
 import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
 import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
 import 'package:code_quest/modules/prepare_screen/prepare.dart';
+import 'package:code_quest/modules/prepare_screen/prepare_cubit.dart';
 import 'package:code_quest/modules/profile_screen/profile_cubit.dart';
 import 'package:code_quest/modules/quizes_screen/quizes_cubit.dart';
 import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
@@ -22,6 +24,8 @@ void main() {
         BlocProvider(create: (_) => PythonCourseCubit()),
         BlocProvider(create: (_) => ProfileCubit()),
         BlocProvider(create: (_) => QuizzesCubit()),
+        BlocProvider(create: (_) => CoursesApplyCubit()),
+        BlocProvider(create: (_) => PrepareCubit()),
       ],
       child: MyApp(),
     ),

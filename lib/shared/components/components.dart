@@ -80,6 +80,7 @@ class CourseCard extends StatelessWidget {
   final double buttonHeight;
   final double sizedheight;
   final String buttonWord;
+  final Function onPressed;
   CourseCard({
     required this.courseName,
     required this.imagePath,
@@ -90,6 +91,7 @@ class CourseCard extends StatelessWidget {
     required this.buttonWidth,
     required this.sizedheight,
     required this.buttonWord,
+    required this.onPressed,
   });
 
   @override
@@ -99,7 +101,7 @@ class CourseCard extends StatelessWidget {
           Clip.none, // Allows the image to be placed outside the container
       children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+          margin: EdgeInsets.symmetric(vertical: 25.h),
           padding: EdgeInsets.all(16),
           width: width.w,
           height: height.h,
@@ -111,35 +113,35 @@ class CourseCard extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.only(end: 250.0),
+            padding: const EdgeInsetsDirectional.only(end: 200.0),
             child: Column(
               children: [
                 SizedBox(width: 80.w), // Creates space for the floating image
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(end: 40.0),
-                  child: Text(
-                    courseName,
-                    style: TextStyle(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  courseName,
+                  style: TextStyle(
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: sizedheight.h),
-                Container(
-                  width: buttonWidth.w,
-                  height: buttonHeight.h,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                Padding(
+                  padding: const EdgeInsetsDirectional.symmetric(vertical: 22.5),
+                  child: SizedBox(
+                    width: buttonWidth.w,
+                    height: buttonHeight.h,
+                    child: ElevatedButton(
+                      onPressed: (){},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      buttonWord,
-                      style: TextStyle(color: Colors.white, fontSize: 14.0.sp),
+                      child: Text(
+                        buttonWord,
+                        style: TextStyle(color: Colors.white, fontSize: 16.0.sp),
+                      ),
                     ),
                   ),
                 ),

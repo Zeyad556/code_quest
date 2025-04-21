@@ -199,7 +199,8 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                       ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                            course.rate >= 65 ? Colors.red : Colors.deepPurple,
+                        course.status? course.rate >= 65 ? Colors.green : Colors.red : Colors.deepPurple
+                            ,
                         foregroundColor: Colors.white,
                         fixedSize: Size(160.w, 40.h),
                         shape: RoundedRectangleBorder(
