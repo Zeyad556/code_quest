@@ -9,7 +9,6 @@ class PrepareScreen extends StatefulWidget {
   @override
   State<PrepareScreen> createState() => _PrepareScreenState();
 }
-
 class _PrepareScreenState extends State<PrepareScreen> {
   @override
   void initState(){
@@ -50,7 +49,7 @@ class _PrepareScreenState extends State<PrepareScreen> {
         Column(
           children: [
             // the rest of your container here
-            SizedBox(height: 15.0.h),
+            SizedBox(height: 50.0.h),
             Center(
               child: Container(
                 width: 360.w,
@@ -130,13 +129,13 @@ class _PrepareScreenState extends State<PrepareScreen> {
         Positioned(
           width: 140.w,
           height: 140.h,
-          top: -10,
+          top: 15,
           right: -3,
           child: CircleAvatar(
             backgroundColor: Colors.white,
             child: ClipOval(
               child: Image.asset(
-                'assets/images/Python.png',
+                'assets/images/'+title+'.png',
                 width: 140.w,
                 height: 140.h,
                 fit: BoxFit.cover,
