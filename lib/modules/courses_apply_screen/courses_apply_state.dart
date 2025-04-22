@@ -6,9 +6,9 @@ final class CoursesApplyInitial extends CoursesApplyState {}
 
 final class CoursesApplyLoading extends CoursesApplyState {}
 
+final class CoursesApplySucces extends CoursesApplyState {}
+
 final class CoursesApplyloaded extends CoursesApplyState {
-  final List<CoursesApplyModel> apply;
-  CoursesApplyloaded({required this.apply});
 }
 
 final class CoursesApplyFailure extends CoursesApplyState {

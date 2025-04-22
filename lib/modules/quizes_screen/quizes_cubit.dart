@@ -2,11 +2,14 @@ import 'dart:ffi';
 
 import 'package:bloc/bloc.dart';
 import 'package:code_quest/modules/lessons_screen/lessons_state.dart';
+import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
 import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
 import 'package:code_quest/modules/quizes_screen/quizes_model.dart';
 import 'package:code_quest/modules/quizes_screen/quizes_state.dart';
 import 'package:http/http.dart' as http;
 
+import '../log_in_screen/login_cubit.dart';
+import '../prepare_screen/prepare_cubit.dart';
 import '_model.dart';
 
 class QuizzesCubit extends Cubit<QuizzesState> {
@@ -18,7 +21,7 @@ class QuizzesCubit extends Cubit<QuizzesState> {
     emit(QuizzesLoading());
     var response = await http.get(
       Uri.parse(
-        "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/lessons/${PythonCourseCubit.num}/quzzis",
+        "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/courses/${PrepareCubit.prepareId}/lessons/${PythonCourseCubit.num}/quizzes",
       ),
     );
     if (response.statusCode == 200) {
@@ -54,7 +57,7 @@ class QuizzesCubit extends Cubit<QuizzesState> {
           "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/submit-quiz",
         ),
         headers: {"Content-Type" : "application/json"},
-        body: sendScoreToJson(SendScore(userId: 19, lessonId: PythonCourseCubit.num, selectedAnswers: selectedAnswers))
+        body: sendScoreToJson(SendScore(userId: LoginCubit.userId, lessonId: PythonCourseCubit.num, selectedAnswers: selectedAnswers,courseId:PrepareCubit.prepareId))
       );
       print(response.body);////
       if (response.statusCode == 200) {

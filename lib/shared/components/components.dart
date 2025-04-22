@@ -80,7 +80,7 @@ class CourseCard extends StatelessWidget {
   final double buttonHeight;
   final double sizedheight;
   final String buttonWord;
-  final Function onPressed;
+  final Function()? Pressed;
   CourseCard({
     required this.courseName,
     required this.imagePath,
@@ -91,7 +91,7 @@ class CourseCard extends StatelessWidget {
     required this.buttonWidth,
     required this.sizedheight,
     required this.buttonWord,
-    required this.onPressed,
+    required this.Pressed,
   });
 
   @override
@@ -131,7 +131,7 @@ class CourseCard extends StatelessWidget {
                     width: buttonWidth.w,
                     height: buttonHeight.h,
                     child: ElevatedButton(
-                      onPressed: (){},
+                      onPressed: Pressed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple,
                         shape: RoundedRectangleBorder(

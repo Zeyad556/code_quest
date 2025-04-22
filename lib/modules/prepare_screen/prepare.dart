@@ -5,7 +5,17 @@ import 'package:code_quest/modules/prepare_screen/prepare_state.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../paython_course/paython_course_screen.dart';
 
-class PrepareScreen extends StatelessWidget {
+class PrepareScreen extends StatefulWidget {
+  @override
+  State<PrepareScreen> createState() => _PrepareScreenState();
+}
+
+class _PrepareScreenState extends State<PrepareScreen> {
+  @override
+  void initState(){
+    context.read<PrepareCubit>().courseProcess();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,20 +32,18 @@ class PrepareScreen extends StatelessWidget {
               itemCount: prepareList.length,
               itemBuilder: (context, index) {
                 final course = prepareList[index];
-                return _buildCourseContainer(course.title, course.takenLessons, context);
+                return _buildCourseContainer(course.title, course.takenLessons, context,course.id);
               },
             );
           } else if (state is PrepareFailuer) {
             return Center(child: Text(state.error));
-          } else {
-            return Center(child: Text("No data yet"));
-          }
+          }return Placeholder();
         },
       ),
     );
   }
 
-  Widget _buildCourseContainer(String title, double progress, BuildContext context) {
+  Widget _buildCourseContainer(String title, double progress, BuildContext context,int id) {
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -46,7 +54,7 @@ class PrepareScreen extends StatelessWidget {
             Center(
               child: Container(
                 width: 360.w,
-                height: 280.h,
+                height: 310.h,
                 decoration: BoxDecoration(
                   color: Colors.grey[350],
                   borderRadius: BorderRadius.circular(20.0),
@@ -59,14 +67,15 @@ class PrepareScreen extends StatelessWidget {
                   ],
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(vertical: 50.0),
+                  padding: const EdgeInsetsDirectional.symmetric(vertical: 50),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 250.0),
+                        padding: const EdgeInsetsDirectional.only(end: 150.0,bottom: 45),
                         child: Text(
                           title,
-                          style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.bold),
+                          style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
                         ),
                       ),
                       Slider(
@@ -91,6 +100,7 @@ class PrepareScreen extends StatelessWidget {
                         height: 40.h,
                         child: ElevatedButton(
                           onPressed: () {
+                            PrepareCubit.prepareId=id;
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -120,8 +130,8 @@ class PrepareScreen extends StatelessWidget {
         Positioned(
           width: 140.w,
           height: 140.h,
-          top: -5,
-          right: 5,
+          top: -10,
+          right: -3,
           child: CircleAvatar(
             backgroundColor: Colors.white,
             child: ClipOval(

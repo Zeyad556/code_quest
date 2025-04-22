@@ -16,7 +16,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
   @override
 
   void initState(){
-    context.read<PythonCourseCubit>().courseProcess(19);
+    context.read<PythonCourseCubit>().courseProcess();
     super.initState();
 
   }

@@ -1,3 +1,5 @@
+import 'package:code_quest/cherryToast/CherryToastMsgs.dart';
+import 'package:code_quest/modules/prepare_screen/prepare.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,27 +7,35 @@ import 'package:code_quest/modules/courses_apply_screen/courses_apply_cubit.dart
 import 'package:code_quest/modules/courses_apply_screen/courses_apply_state.dart';
 import 'package:code_quest/shared/components/components.dart';
 
-import 'courses_apply_model.dart';
-
 class ApplyScreen extends StatefulWidget {
   @override
   State<ApplyScreen> createState() => _ApplyScreenState();
 }
 
 class _ApplyScreenState extends State<ApplyScreen> {
-  final String image = 'paython_logo';
-
+  @override
+  void initState (){
+    context.read<CoursesApplyCubit>().courseApplyProcess();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => CoursesApplyCubit()..courseApplyProcess(CoursesApplyModel(id: 0, title: '')), // Fetch courses
-        child: BlocBuilder<CoursesApplyCubit, CoursesApplyState>(
+      body: BlocConsumer<CoursesApplyCubit, CoursesApplyState>(
+          listener: (context, state){
+            if(state is CoursesApplySucces){
+              CherryToastMsgs.CherryToastSuccess(context: context, title: 'Course Enrolled', description: 'Enrolled successfully').show(context);
+              // Navigator.push(context,MaterialPageRoute(builder: (context)=>PrepareScreen()));
+              DefaultTabController.of(context)?.animateTo(1);
+            }
+          },
           builder: (context, state) {
+            print(state);
             if (state is CoursesApplyLoading) {
               return Center(child: CircularProgressIndicator());
             } else if (state is CoursesApplyloaded) {
-              final courses = state.apply;
+              final courses = context.read<CoursesApplyCubit>().apply;
+              print(courses);
               return SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.all(16.0),
@@ -47,19 +57,23 @@ class _ApplyScreenState extends State<ApplyScreen> {
                         itemCount: courses.length,
                         itemBuilder: (context, index) {
                           final course = courses[index];
+                          print(course.title);
                           return Padding(
                             padding: EdgeInsets.only(bottom: 20.0.h),
                             child: CourseCard(
                               courseName: course.title,
-                              imagePath: 'assets/images/'+ course.title+'.png', // Adjust if image name comes from API
+                              imagePath: 'assets/images/'+course.title+'.png',
                               fontSize: 23.sp,
                               width: 500.w,
                               height: 160.h,
                               sizedheight: 30.h,
                               buttonWidth: 150.w,
                               buttonHeight: 40.h,
-                              buttonWord: 'Get Certified',
-                              onPressed: (){},
+                              buttonWord: 'Get Course',
+                              Pressed: (){
+                                CoursesApplyCubit.enrolledCourse=course.id;
+                                context.read<CoursesApplyCubit>().enrollProcess();
+                              },
                             ),
                           );
                         },
@@ -75,7 +89,6 @@ class _ApplyScreenState extends State<ApplyScreen> {
             }
           },
         ),
-      ),
     );
   }
 }

@@ -1,9 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:code_quest/modules/lessons_screen/lessons_model.dart';
 import 'package:code_quest/modules/lessons_screen/lessons_state.dart';
-import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
-import 'package:code_quest/modules/paython_course/python_models/python_model.dart';
+import 'package:code_quest/modules/log_in_screen/login_cubit.dart';
 import 'package:http/http.dart' as http;
+
+import '../paython_course/python_course_cubit.dart';
+import '../prepare_screen/prepare_cubit.dart';
 
 
 class LessonsCubit extends Cubit<LessonsState> {
@@ -16,12 +18,13 @@ class LessonsCubit extends Cubit<LessonsState> {
     emit(LessonsLoading());
     var response = await http.get(
       Uri.parse(
-        "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/lessons/${PythonCourseCubit.num}/sections",
+        "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/courses/${PrepareCubit.prepareId}/lessons/${PythonCourseCubit.num}/sections",
       ),
     );
+    print(response.body);
     if (response.statusCode == 200) {
-      lesson = LessonFromJson(response.body);
       print(response.body);
+      lesson = LessonFromJson(response.body);
       print(lesson[0].title);
       print("courses" + lesson.toString());
       emit(LessonsLoaded());

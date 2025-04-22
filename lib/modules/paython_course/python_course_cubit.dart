@@ -1,8 +1,12 @@
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
+import 'package:code_quest/modules/courses_apply_screen/courses_apply_cubit.dart';
 import 'package:code_quest/modules/paython_course/python_models/python_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+
+import '../log_in_screen/login_cubit.dart';
+import '../prepare_screen/prepare_cubit.dart';
 
 part 'python_course_state.dart';
 
@@ -11,11 +15,11 @@ class PythonCourseCubit extends Cubit<PythonCourseState> {
   PythonCourseCubit() : super(PythonCourseInitial());
   List<PythonModel> course = [];
 
-  Future<void> courseProcess(int CourseId) async {
+  Future<void> courseProcess() async {
     emit(PythonCourseLoading());
     var response = await http.get(
       Uri.parse(
-        "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/1/lessons/progress?userId=${CourseId}",
+        "https://course-codequest-215c3c02f593.herokuapp.com/api/courses/${PrepareCubit.prepareId}/lessons/progress?userId=${LoginCubit.userId}",
       ),
     );
     if (response.statusCode == 200) {

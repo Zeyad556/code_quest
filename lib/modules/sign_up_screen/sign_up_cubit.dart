@@ -1,8 +1,11 @@
 import 'package:bloc/bloc.dart';
+import 'package:code_quest/modules/log_in_screen/login_cubit.dart';
 import 'package:code_quest/modules/sign_up_screen/model/sign_up_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+
+import '../authentaction_model/auth_model.dart';
 
 part 'sign_up_state.dart';
 
@@ -41,12 +44,12 @@ class SignUpCubit extends Cubit<SignUpState> {
     emit(GenderChanged(isMale: isMale, isFemale: isFemale));
   }
 
-  void signUp(BuildContext context) {
+  void signUp(BuildContext context) async {
     try {
       if (formKey.currentState!.validate()) {
         formKey.currentState!.save();
         emit(SignUpLoading());
-        dio.post(
+        final response= await dio.post(
           "https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/register",
           data: {
             "firstName": firstNameController.text,
@@ -58,10 +61,22 @@ class SignUpCubit extends Cubit<SignUpState> {
             "gender": isMale ? "male" : "female",
           },
         );
-        emit(SignUpSuccess());
+        if (response.statusCode == 200) {
+          print(response.data);
+          if(response.data["message"].toString().contains("OTP sent!")){
+            emit(SignUpSuccess());
+          }
+          print("Success");
+        } else if (response.statusCode == 401) {
+          emit(SignUpFailure("Invalid phone number or password"));
+          print("Failure");
+        } else {
+          emit(SignUpFailure("Something went wrong"));
+        }
       }
-    } catch (e) {
+    } catch (e,t) {
       emit(SignUpFailure(e.toString()));
+      print(t);
     }
   }
 
@@ -72,6 +87,10 @@ class SignUpCubit extends Cubit<SignUpState> {
         queryParameters: {"email": email, "otp": otp},
       );
       if (response.statusCode == 200) {
+        print(response.data);
+        AuthModel userData= authModelFromJson(response.data as Map<String,dynamic>);
+        LoginCubit.userId= userData.userId;
+        print(response.data);
         emit(VerfiyOtpSuccess());
       }
     } catch (e) {

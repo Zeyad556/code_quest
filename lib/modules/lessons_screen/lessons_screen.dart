@@ -22,6 +22,7 @@ class _LessonScreenState extends State<LessonScreen> {
       create: (context) => LessonsCubit(),
       child: BlocConsumer<LessonsCubit, LessonsState>(
         builder: (context, state) {
+          print(state);
           final lesson=context.read<LessonsCubit>();
           return Scaffold(
             body: Container(
