@@ -2,9 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:code_quest/modules/lessons_screen/lessons_model.dart';
 import 'package:code_quest/modules/lessons_screen/lessons_state.dart';
 import 'package:code_quest/modules/log_in_screen/login_cubit.dart';
+import 'package:code_quest/modules/python_course/python_course_cubit.dart';
 import 'package:http/http.dart' as http;
-
-import '../paython_course/python_course_cubit.dart';
 import '../prepare_screen/prepare_cubit.dart';
 
 

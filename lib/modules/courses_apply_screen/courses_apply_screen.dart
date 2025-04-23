@@ -65,10 +65,10 @@ class _ApplyScreenState extends State<ApplyScreen> {
                               imagePath: 'assets/images/'+course.title+'.png',
                               fontSize: 23.sp,
                               width: 500.w,
-                              height: 160.h,
-                              sizedheight: 30.h,
+                              height: 180.h,
+                              sizedheight: 29.h,
                               buttonWidth: 150.w,
-                              buttonHeight: 40.h,
+                              buttonHeight: 35.h,
                               buttonWord: 'Get Course',
                               Pressed: (){
                                 CoursesApplyCubit.enrolledCourse=course.id;

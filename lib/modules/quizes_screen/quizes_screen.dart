@@ -1,14 +1,11 @@
-import 'dart:ffi';
-
-import 'package:cherry_toast/cherry_toast.dart';
 import 'package:code_quest/cherryToast/CherryToastMsgs.dart';
-import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:code_quest/modules/quizes_screen/quizes_cubit.dart';
 import 'package:code_quest/modules/quizes_screen/quizes_state.dart';
-import 'package:code_quest/modules/quizes_screen/quizes_model.dart';
+
+import '../python_course/paython_course_screen.dart';
 
 class QuizesScreen extends StatefulWidget {
   @override

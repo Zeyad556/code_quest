@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:bloc/bloc.dart';
-import 'package:code_quest/modules/courses_apply_screen/courses_apply_cubit.dart';
-import 'package:code_quest/modules/paython_course/python_models/python_model.dart';
+import 'package:code_quest/modules/python_course/python_models/python_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 

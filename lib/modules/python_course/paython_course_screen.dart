@@ -1,6 +1,6 @@
-import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
-import 'package:code_quest/modules/paython_course/python_models/python_model.dart';
 import 'package:code_quest/modules/profile_screen/profile_cubit.dart';
+import 'package:code_quest/modules/python_course/python_course_cubit.dart';
+import 'package:code_quest/modules/python_course/python_models/python_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -87,7 +87,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Paython Course",
+                        "Python Course",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 25.sp,

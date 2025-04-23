@@ -2,8 +2,7 @@ import 'dart:ffi';
 
 import 'package:bloc/bloc.dart';
 import 'package:code_quest/modules/lessons_screen/lessons_state.dart';
-import 'package:code_quest/modules/paython_course/paython_course_screen.dart';
-import 'package:code_quest/modules/paython_course/python_course_cubit.dart';
+import 'package:code_quest/modules/python_course/python_course_cubit.dart';
 import 'package:code_quest/modules/quizes_screen/quizes_model.dart';
 import 'package:code_quest/modules/quizes_screen/quizes_state.dart';
 import 'package:http/http.dart' as http;

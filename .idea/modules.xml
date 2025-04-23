@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/code_quest.iml" filepath="$PROJECT_DIR$/code_quest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeQuest.iml" filepath="$PROJECT_DIR$/CodeQuest.iml" />
       <module fileurl="file://$PROJECT_DIR$/android/code_quest_android.iml" filepath="$PROJECT_DIR$/android/code_quest_android.iml" />
     </modules>
   </component>

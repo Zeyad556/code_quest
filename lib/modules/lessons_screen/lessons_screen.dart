@@ -4,10 +4,8 @@ import 'package:code_quest/modules/quizes_screen/quizes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../paython_course/paython_course_screen.dart';
-import '../profile_screen/profile_cubit.dart';
-import '../profile_screen/profile_screen.dart';
 
+import '../python_course/paython_course_screen.dart';
 class LessonScreen extends StatefulWidget {
   @override
   State<LessonScreen> createState() => _LessonScreenState();

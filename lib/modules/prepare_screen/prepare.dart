@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:code_quest/modules/prepare_screen/prepare_cubit.dart';
 import 'package:code_quest/modules/prepare_screen/prepare_state.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../paython_course/paython_course_screen.dart';
+
+import '../python_course/paython_course_screen.dart';
+
 
 class PrepareScreen extends StatefulWidget {
   @override
