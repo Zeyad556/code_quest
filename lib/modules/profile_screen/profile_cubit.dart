@@ -11,7 +11,7 @@ part 'profile_state.dart';
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit() : super(ProfileInitial());
 
-  Future<void> getProfileData(String phoneNumber) async {
+  Future<void> getProfileData() async {
     emit(ProfileLoading());
     try {
       var response = await http.get(

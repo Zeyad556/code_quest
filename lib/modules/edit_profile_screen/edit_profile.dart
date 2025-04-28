@@ -10,7 +10,7 @@ class EditProfileScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Padding(
-          padding: const EdgeInsetsDirectional.only(start: 240.0),
+          padding: const EdgeInsetsDirectional.only(start: 200.0),
           child: Text(
             "CodeQuest",
             style: TextStyle(
@@ -101,7 +101,7 @@ class EditProfileScreen extends StatelessWidget {
                     buildProfileField("Phone Number", "01234567890"),
                     Padding(
                       padding: const EdgeInsets.only(
-                        right: 50,
+                        right: 30,
                         top: 5
                       ),
                       child: Text(

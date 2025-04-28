@@ -30,7 +30,7 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
               if (state is VerfiyOtpSuccess) {
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen(index: 0,)),
                   (route) => false,
                 );
               } else if (state is VerfiyOtpFailure) {

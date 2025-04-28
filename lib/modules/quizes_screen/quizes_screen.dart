@@ -1,4 +1,5 @@
 import 'package:code_quest/cherryToast/CherryToastMsgs.dart';
+import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +44,7 @@ class _QuizesScreenState extends State<QuizesScreen> {
               ).show(context);
               Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => PaythonCourseScreen()),
+                MaterialPageRoute(builder: (context) => HomeScreen(index: 1,)),
                 (route) => false,
               );
             }

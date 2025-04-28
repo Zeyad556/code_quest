@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../lessons_screen/lessons_screen.dart';
 import '../profile_screen/profile_screen.dart';
-
 class PaythonCourseScreen extends StatefulWidget {
   @override
   State<PaythonCourseScreen> createState() => _PaythonCourseScreenState();
@@ -20,10 +19,16 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
     super.initState();
 
   }
+  Color getStateColor(bool state) {
+    return state ? Colors.green: Colors.red;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actionsIconTheme: IconThemeData(
+          color: Colors.grey
+      ),
         backgroundColor: Colors.deepPurple,
         toolbarHeight: 80.0.h,
         title: Padding(
@@ -48,7 +53,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
             child: IconButton(
               icon: Icon(Icons.account_circle, color: Colors.white, size: 40),
               onPressed: () {
-                context.read<ProfileCubit>().getProfileData("01170911564");
+                context.read<ProfileCubit>().getProfileData();
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ProfileScreen()),
@@ -148,10 +153,10 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                 ),
                 SizedBox(height: 10.0.h),
                 Text(
-                  course.rate >= 60 ? "Success" : "Not Success",
+                  course.progress ? "Success" : "Not Success",
                   style: TextStyle(
-                    fontSize: 15.0.sp,
-                    color: Colors.black,
+                    fontSize: 18.0.sp,
+                    color: getStateColor(course.status),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -165,25 +170,16 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                           child: Text(
                             "Rate: ${course.rate.toDouble()}% ",
                             style: TextStyle(
-                              fontSize: 15.0.sp,
+                              fontSize: 18.0.sp,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-
-                        Text(
-                          course.status == true ? "Taken" : "Not Taken",
-                          style: TextStyle(
-                            fontSize: 20.0.sp,
-                            color: Colors.deepPurple,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
                       ],
                     ),
                     SizedBox(width: 10.0.w),
-                    ElevatedButton(
+                    course.status ?ElevatedButton(
                       onPressed: () {
                         PythonCourseCubit.num=course.Id;
                         Navigator.push(
@@ -194,13 +190,34 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                         );
                       },
                       child: Text(
-                        course.rate >= 60 ? "Take It again" : "Take the lesson",
+                        course.progress? "Take It again" : "Take the lesson",
                         style: TextStyle(fontSize: 16.0.sp),
                       ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
                         course.status? course.rate >= 60 ? Colors.green : Colors.red : Colors.deepPurple
-                            ,
+                        ,
+                        foregroundColor: Colors.white,
+                        fixedSize: Size(160.w, 40.h),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ) : ElevatedButton(
+                      onPressed: () {
+                        PythonCourseCubit.num=course.Id;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LessonScreen(),
+                          ),
+                        );
+                      },
+                      child: Icon(Icons.lock),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                        course.status? course.rate >= 60 ? Colors.green : Colors.red : Colors.deepPurple
+                        ,
                         foregroundColor: Colors.white,
                         fixedSize: Size(160.w, 40.h),
                         shape: RoundedRectangleBorder(

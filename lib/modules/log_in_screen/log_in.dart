@@ -26,7 +26,7 @@ class _LogInScreenState extends State<LogInScreen> {
           if (state is LoginSuccess) {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomeScreen()),
+              MaterialPageRoute(builder: (context) => HomeScreen(index: 1,)),
               (route) => false,
             );
           } else if (state is LoginFailure) {

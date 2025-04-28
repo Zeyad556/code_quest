@@ -8,11 +8,19 @@ import '../certefication_screen/certefication.dart';
 import '../courses_apply_screen/courses_apply_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  final int index;
+  const HomeScreen({super.key, required this.index});
   @override
   State<HomeScreen> createState() => _ApplyScreenState();
 }
 
-class _ApplyScreenState extends State<HomeScreen> {
+class _ApplyScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+  late TabController controller;
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(vsync: this, length: 3, initialIndex: widget.index); // Set default index (1 in this case)
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -27,7 +35,7 @@ class _ApplyScreenState extends State<HomeScreen> {
               child: IconButton(
                 icon: Icon(Icons.account_circle, color: Colors.white, size: 40),
                 onPressed: () {
-                  context.read<ProfileCubit>().getProfileData("01170911564");
+                  context.read<ProfileCubit>().getProfileData();
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ProfileScreen()),
@@ -50,6 +58,7 @@ class _ApplyScreenState extends State<HomeScreen> {
                 SizedBox(width: 20.w),
                 Expanded(
                   child: TabBar(
+                    controller: controller,
                     indicatorColor: Colors.white,
                     indicatorWeight: 3,
                     labelStyle: TextStyle(
@@ -69,6 +78,7 @@ class _ApplyScreenState extends State<HomeScreen> {
           ),
         ),
         body: TabBarView(
+          controller: controller,
           children: [
             Center(child: ApplyScreen()),
             Center(child: PrepareScreen()),
