@@ -148,7 +148,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                 ),
                 SizedBox(height: 10.0.h),
                 Text(
-                  course.rate >= 65 ? "Success" : "Not Success",
+                  course.rate >= 60 ? "Success" : "Not Success",
                   style: TextStyle(
                     fontSize: 15.0.sp,
                     color: Colors.black,
@@ -194,12 +194,12 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                         );
                       },
                       child: Text(
-                        course.rate >= 65 ? "Take It again" : "Take the lesson",
+                        course.rate >= 60 ? "Take It again" : "Take the lesson",
                         style: TextStyle(fontSize: 16.0.sp),
                       ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                        course.status? course.rate >= 65 ? Colors.green : Colors.red : Colors.deepPurple
+                        course.status? course.rate >= 60 ? Colors.green : Colors.red : Colors.deepPurple
                             ,
                         foregroundColor: Colors.white,
                         fixedSize: Size(160.w, 40.h),

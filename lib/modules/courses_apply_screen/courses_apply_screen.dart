@@ -63,11 +63,11 @@ class _ApplyScreenState extends State<ApplyScreen> {
                             child: CourseCard(
                               courseName: course.title,
                               imagePath: 'assets/images/'+course.title+'.png',
-                              fontSize: 23.sp,
+                              fontSize: 25.sp,
                               width: 500.w,
-                              height: 180.h,
-                              sizedheight: 29.h,
-                              buttonWidth: 150.w,
+                              height: 150.h,
+                              sizedheight: 25.h,
+                              buttonWidth: 190.w,
                               buttonHeight: 35.h,
                               buttonWord: 'Get Course',
                               Pressed: (){

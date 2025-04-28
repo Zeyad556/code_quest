@@ -102,7 +102,6 @@ class CourseCard extends StatelessWidget {
       children: [
         Container(
           margin: EdgeInsets.symmetric(vertical: 25.h),
-          padding: EdgeInsets.all(16),
           width: width.w,
           height: height.h,
           decoration: BoxDecoration(
@@ -126,7 +125,7 @@ class CourseCard extends StatelessWidget {
                 ),
                 SizedBox(height: sizedheight.h),
                 Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(vertical: 22.5),
+                  padding: const EdgeInsetsDirectional.symmetric(vertical: 23,horizontal: 7),
                   child: SizedBox(
                     width: buttonWidth.w,
                     height: buttonHeight.h,
@@ -153,7 +152,7 @@ class CourseCard extends StatelessWidget {
           width: 140.w,
           height: 140.h,
           top: -20, // Adjust this value to move the image up
-          right: 5, // Positioning for the left side
+          right: -5, // Positioning for the left side
           child: CircleAvatar(
             radius: 5, // Adjust the size
             backgroundColor: Colors.white,

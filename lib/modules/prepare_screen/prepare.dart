@@ -55,7 +55,7 @@ class _PrepareScreenState extends State<PrepareScreen> {
             Center(
               child: Container(
                 width: 360.w,
-                height: 310.h,
+                height: 270.h,
                 decoration: BoxDecoration(
                   color: Colors.grey[350],
                   borderRadius: BorderRadius.circular(20.0),
@@ -68,12 +68,11 @@ class _PrepareScreenState extends State<PrepareScreen> {
                   ],
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(vertical: 50),
+                  padding: const EdgeInsetsDirectional.symmetric(vertical: 60),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 150.0,bottom: 45),
+                        padding: const EdgeInsetsDirectional.only(end: 200),
                         child: Text(
                           title,
                           style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
@@ -88,10 +87,9 @@ class _PrepareScreenState extends State<PrepareScreen> {
                         activeColor: Colors.deepPurple,
                         onChanged: (value) {},
                       ),
-                      Padding(
-                        padding: const EdgeInsetsDirectional.symmetric(horizontal: 20),
+                      Center(
                         child: Text(
-                          "${progress.toInt()}% OF 100% of the course to unlock the certificate",
+                          "${progress.toInt()}% of the course to unlock the certificate",
                           style: TextStyle(fontSize: 17.6.sp, fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -117,7 +115,7 @@ class _PrepareScreenState extends State<PrepareScreen> {
                           ),
                           child: Text(
                             'Continue Preparation',
-                            style: TextStyle(color: Colors.white, fontSize: 16.0.sp),
+                            style: TextStyle(color: Colors.white, fontSize: 15.0.sp),
                           ),
                         ),
                       ),

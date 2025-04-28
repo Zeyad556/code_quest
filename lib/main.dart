@@ -1,4 +1,5 @@
 import 'package:code_quest/modules/courses_apply_screen/courses_apply_cubit.dart';
+import 'package:code_quest/modules/home_screen/home.dart';
 import 'package:code_quest/modules/prepare_screen/prepare_cubit.dart';
 import 'package:code_quest/modules/profile_screen/profile_cubit.dart';
 import 'package:code_quest/modules/quizes_screen/quizes_cubit.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(debugShowCheckedModeBanner: false, home: child);
       },
-      child: WelcomeScreen(),
+      child: HomeScreen(),
     );
   }
 }

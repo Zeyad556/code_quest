@@ -59,7 +59,7 @@ class _LessonScreenState extends State<LessonScreen> {
                     ),
                     SizedBox(height: 50.h),
                     Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 150),
+                      padding: const EdgeInsetsDirectional.only(end: 130),
                       child:
                           state is LessonsLoaded
                               ? Text(
