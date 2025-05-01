@@ -7,23 +7,23 @@ part 'edit_state.dart';
 
 class EditCubit extends Cubit<EditState> {
   EditCubit() : super(EditInitial());
-  Future<void> editProfile(ProfileModel model) async {
+  Future<void> editProfile(EditModel model) async {
     try {
       emit(EditLoading());
       var response = await http.put(
-        body: profileModelToJson(model),
-        headers: {
-          "Content-Type" : "application/json"
-        },
+        body: editModelToJson(model),
+        headers: {"Content-Type": "application/json"},
         Uri.parse(
-          "https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/profile/edit",
+          'https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/profile/edit',
         ),
       );
       if (response.statusCode == 200) {
+        print(response.statusCode);
         print(response.body);
         emit(EditSuccess());
       } else {
         print(response.body);
+        print(response.statusCode);
         emit(EditFauiler(error: response.body));
       }
     } catch (e) {

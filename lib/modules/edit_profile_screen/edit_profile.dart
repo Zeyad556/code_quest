@@ -1,5 +1,6 @@
 import 'package:code_quest/cherryToast/CherryToastMsgs.dart';
 import 'package:code_quest/modules/edit_profile_screen/edit_cubit.dart';
+import 'package:code_quest/modules/edit_profile_screen/edit_model.dart';
 import 'package:code_quest/modules/log_in_screen/login_cubit.dart';
 import 'package:code_quest/modules/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -54,20 +55,26 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ),
         ),
       ),
-      body: BlocBuilder<EditCubit, EditState>(
-        builder: (context, state) {
-          if (state is EditFauiler) {
+      body: BlocConsumer<EditCubit, EditState>(
+        listener: (context, state) {
+          if (state is EditSuccess) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileScreen()),
+            );
+          } else if (state is EditFauiler) {
             CherryToastMsgs.CherryToastError(
               context: context,
               title: 'error',
               description: 'invaild data',
             ).show(context);
-          } else if (state is EditLoading) {
-            return CircularProgressIndicator();
-          }else if(state is EditSuccess){
-          Navigator.pushReplacement(context,MaterialPageRoute(builder: (context)=>ProfileScreen()));
           }
-          return  SingleChildScrollView(
+        },
+        builder: (context, state) {
+          if (state is EditLoading) {
+            return Center(child: CircularProgressIndicator());
+          }
+          return SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -162,12 +169,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         child: ElevatedButton.icon(
                           onPressed: () {
                             context.read<EditCubit>().editProfile(
-                              ProfileModel(
+                              EditModel(
                                 id: LoginCubit.userId,
                                 firstName: firstName.text,
                                 lastName: lastName.text,
                                 email: email.text,
-                                phoneNum: phoneNumber.text,
+                                newPhoneNum: phoneNumber.text,
                                 birthDate: birth.text,
                               ),
                             );
@@ -200,7 +207,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           onPressed: () {},
                           style: OutlinedButton.styleFrom(
                             foregroundColor:
-                            Colors.deepPurple, // Text and border color
+                                Colors.deepPurple, // Text and border color
                             side: BorderSide(
                               color: Colors.deepPurple,
                             ), // Border color

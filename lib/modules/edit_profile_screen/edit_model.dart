@@ -10,7 +10,7 @@ class EditModel {
   String lastName;
   String email;
   String newPhoneNum;
-  DateTime birthDate;
+  String birthDate;
 
   EditModel({
     required this.id,
@@ -27,7 +27,7 @@ class EditModel {
     lastName: json["lastName"],
     email: json["email"],
     newPhoneNum: json["newPhoneNum"],
-    birthDate: DateTime.parse(json["birthDate"]),
+    birthDate: json["birthDate"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -36,7 +36,6 @@ class EditModel {
     "lastName": lastName,
     "email": email,
     "newPhoneNum": newPhoneNum,
-    "birthDate":
-        "${birthDate.year.toString().padLeft(4, '0')}-${birthDate.month.toString().padLeft(2, '0')}-${birthDate.day.toString().padLeft(2, '0')}",
+    "birthDate": birthDate,
   };
 }
