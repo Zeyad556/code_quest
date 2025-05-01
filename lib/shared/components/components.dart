@@ -203,7 +203,7 @@ Widget divider() {
   );
 }
 
-Widget buildProfileField(String label, String value, {bool isBold = false}) {
+Widget buildProfileField(String label, TextEditingController value, {bool isBold = false}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 5),
     child: Column(
@@ -228,8 +228,8 @@ Widget buildProfileField(String label, String value, {bool isBold = false}) {
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Text(
-            value,
+          child: TextField(
+            controller:value ,
             style: TextStyle(
               fontSize: 16,
               fontWeight: isBold ? FontWeight.bold : FontWeight.normal,

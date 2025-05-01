@@ -35,7 +35,6 @@ class _ApplyScreenState extends State<HomeScreen> with SingleTickerProviderState
               child: IconButton(
                 icon: Icon(Icons.account_circle, color: Colors.white, size: 40),
                 onPressed: () {
-                  context.read<ProfileCubit>().getProfileData();
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ProfileScreen()),

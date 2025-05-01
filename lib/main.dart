@@ -7,6 +7,7 @@ import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'modules/edit_profile_screen/edit_cubit.dart';
 import 'modules/log_in_screen/login_cubit.dart';
 import 'modules/python_course/python_course_cubit.dart';
 import 'modules/welcome_screen/welcome.dart';
@@ -22,6 +23,7 @@ void main() {
         BlocProvider(create: (_) => QuizzesCubit()),
         BlocProvider(create: (_) => CoursesApplyCubit()),
         BlocProvider(create: (_) => PrepareCubit()),
+        BlocProvider(create: (_) => EditCubit()),
       ],
       child: MyApp(),
     ),

@@ -7,8 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   var notesController = TextEditingController();
+  @override
+  void initState(){
+    super.initState();
+  context.read<ProfileCubit>().getProfileData();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -171,7 +181,7 @@ class ProfileScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => EditProfileScreen(),
+                          builder: (context) => EditProfileScreen(dataModel: profileData,),
                         ),
                       );
                     },
