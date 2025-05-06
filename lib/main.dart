@@ -1,18 +1,25 @@
-import 'package:code_quest/modules/courses_apply_screen/courses_apply_cubit.dart';
-import 'package:code_quest/modules/home_screen/home.dart';
-import 'package:code_quest/modules/prepare_screen/prepare_cubit.dart';
-import 'package:code_quest/modules/profile_screen/profile_cubit.dart';
-import 'package:code_quest/modules/quizes_screen/quizes_cubit.dart';
-import 'package:code_quest/modules/sign_up_screen/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'modules/edit_profile_screen/edit_cubit.dart';
+import 'modules/home_screen/home.dart';
 import 'modules/log_in_screen/login_cubit.dart';
 import 'modules/python_course/python_course_cubit.dart';
 import 'modules/welcome_screen/welcome.dart';
+import 'network/local/cash_helper.dart';
+import 'modules/sign_up_screen/sign_up_cubit.dart';
+import 'modules/profile_screen/profile_cubit.dart';
+import 'modules/quizes_screen/quizes_cubit.dart';
+import 'modules/courses_apply_screen/courses_apply_cubit.dart';
+import 'modules/prepare_screen/prepare_cubit.dart';
+ 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
+
+  final savedUser = CacheHelper.getLoginData();  
+
   runApp(
     MultiBlocProvider(
       providers: [
@@ -25,27 +32,28 @@ void main() {
         BlocProvider(create: (_) => PrepareCubit()),
         BlocProvider(create: (_) => EditCubit()),
       ],
-      child: MyApp(),
+      child: MyApp(isLoggedIn: savedUser != null), // ✅ تمرير حالة تسجيل الدخول
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool isLoggedIn;
+  const MyApp({super.key, required this.isLoggedIn});
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(
-        375,
-        812,
-      ), // Set base design size (adjust accordingly)
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(debugShowCheckedModeBanner: false, home: child);
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: isLoggedIn ?    HomeScreen(index: 0) : WelcomeScreen(),
+        );
       },
-      child: WelcomeScreen(),
+      child: const SizedBox.shrink(),
     );
   }
 }

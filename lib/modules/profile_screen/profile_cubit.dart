@@ -3,13 +3,14 @@ import 'package:code_quest/modules/profile_screen/profile_model.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
-
 import '../log_in_screen/login_cubit.dart';
+import 'package:code_quest/network/local/cash_helper.dart';
 
 part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit() : super(ProfileInitial());
+
 
   Future<void> getProfileData() async {
     emit(ProfileLoading());
@@ -23,15 +24,19 @@ class ProfileCubit extends Cubit<ProfileState> {
         var jsonData = response.body;
         ProfileModel data = profileModelFromJson(jsonData);
         emit(ProfileLoaded(profileData: data));
-        print(response.body);
-        print("Cubit Success");
+        print("Cubit Success: ${response.body}");
       } else {
         emit(ProfileFailure(error: 'Failed to load profile data'));
-        print("Cubit Failed");
-        print(response.body);
+        print("Cubit Failed: ${response.body}");
       }
     } catch (e) {
       emit(ProfileFailure(error: e.toString()));
     }
+  }
+
+
+  Future<void> logout() async {
+    await CacheHelper.removeData(key: 'userId');
+    emit(ProfileInitial());
   }
 }

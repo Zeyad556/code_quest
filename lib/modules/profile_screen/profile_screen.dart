@@ -14,11 +14,14 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   var notesController = TextEditingController();
+
   @override
-  void initState(){
+  void initState() {
     super.initState();
-  context.read<ProfileCubit>().getProfileData();
+    // جلب بيانات الملف الشخصي عند بداية الشاشة
+    context.read<ProfileCubit>().getProfileData();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -181,7 +184,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => EditProfileScreen(dataModel: profileData,),
+                          builder: (context) => EditProfileScreen(dataModel: profileData, ),
                         ),
                       );
                     },
@@ -209,17 +212,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 40.0.h,
                   child: OutlinedButton(
                     onPressed: () {
+                      // استدعاء عملية تسجيل الخروج
+                      context.read<ProfileCubit>().logout();
+
+                      // إعادة التوجيه إلى شاشة الترحيب
                       Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
                           builder: (context) => WelcomeScreen(),
                         ),
-                        (route) => false,
+                            (route) => false,
                       );
                     },
                     style: OutlinedButton.styleFrom(
                       foregroundColor:
-                          Colors.deepPurple, // Text and border color
+                      Colors.deepPurple, // Text and border color
                       side: BorderSide(
                         color: Colors.deepPurple,
                         width: 4.w,
