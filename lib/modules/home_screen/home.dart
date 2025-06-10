@@ -26,9 +26,10 @@ class _ApplyScreenState extends State<HomeScreen> with SingleTickerProviderState
     return DefaultTabController(
       length: 3, // Number of tabs
       child: Scaffold(
+        backgroundColor: Color(0xFFAA60C8),
         appBar: AppBar(
           toolbarHeight: 130.0.h,
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Color(0xFFAA60C8),
           actions: [
             Padding(
               padding: const EdgeInsetsDirectional.only(bottom: 50.0, end: 5.0),

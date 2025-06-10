@@ -21,6 +21,7 @@ class _ApplyScreenState extends State<ApplyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF1EAFF),
       body: BlocConsumer<CoursesApplyCubit, CoursesApplyState>(
           listener: (context, state){
             if(state is CoursesApplySucces){

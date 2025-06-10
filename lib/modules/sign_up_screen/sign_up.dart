@@ -19,7 +19,8 @@ class _SignInScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     final cubit = context.read<SignUpCubit>();
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white, toolbarHeight: 30),
+      backgroundColor: Color(0xFFE5D4FF),
+      appBar: AppBar(backgroundColor: Color(0xFFE5D4FF), toolbarHeight: 30),
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         reverse: true,
@@ -86,7 +87,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                               'First Name',
                               style: TextStyle(
                                 fontSize: 18.0.sp,
-                                color: Colors.grey[500],
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -100,7 +101,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                               width: 150.w,
                               height: 50.h,
                               decoration: BoxDecoration(
-                                color: Colors.grey[350], //el [] 3shan opacity
+                                color: Colors.black12, //el [] 3shan opacity
                               ),
                               child: defaultFormField(
                                 controller: cubit.firstNameController,
@@ -126,20 +127,18 @@ class _SignInScreenState extends State<SignUpScreen> {
                               'Last Name',
                               style: TextStyle(
                                 fontSize: 18.0.sp,
-                                color: Colors.grey[500],
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                              end:5,
-                            ),
+                            padding: const EdgeInsetsDirectional.only(end: 5),
                             child: Container(
                               width: 150.w,
                               height: 50.h,
                               decoration: BoxDecoration(
-                                color: Colors.grey[350], //el [] 3shan opacity
+                                color: Colors.black12, //el [] 3shan opacity
                               ),
                               child: defaultFormField(
                                 controller: cubit.lastNameController,
@@ -167,17 +166,17 @@ class _SignInScreenState extends State<SignUpScreen> {
                           'Email',
                           style: TextStyle(
                             fontSize: 18.0.sp,
-                            color: Colors.grey[500],
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(start :5.0),
+                        padding: const EdgeInsetsDirectional.only(start: 5.0),
                         child: Container(
                           width: 340.w,
                           height: 40.h,
-                          decoration: BoxDecoration(color: Colors.grey[350]),
+                          decoration: BoxDecoration(color: Colors.black12),
                           child: defaultFormField(
                             controller: cubit.emailController,
                             type: TextInputType.emailAddress,
@@ -203,17 +202,17 @@ class _SignInScreenState extends State<SignUpScreen> {
                           'Phone Number',
                           style: TextStyle(
                             fontSize: 18.0.sp,
-                            color: Colors.grey[500],
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(start:5.0),
+                        padding: const EdgeInsetsDirectional.only(start: 5.0),
                         child: Container(
                           width: 340.w,
                           height: 40.h,
-                          decoration: BoxDecoration(color: Colors.grey[350]),
+                          decoration: BoxDecoration(color: Colors.black12),
                           child: defaultFormField(
                             controller: cubit.phoneController,
                             type: TextInputType.phone,
@@ -232,7 +231,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                       Text(
                         'You may receive Whatsapp or SMS notfication from us',
                         style: TextStyle(
-                          color: Colors.grey[500],
+                          color: Colors.black,
                           fontSize: 13.0.sp,
                           fontWeight: FontWeight.bold,
                         ),
@@ -248,7 +247,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                           'Password Number',
                           style: TextStyle(
                             fontSize: 18.0.sp,
-                            color: Colors.grey[500],
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -258,7 +257,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                         child: Container(
                           width: 340.w,
                           height: 40.h,
-                          decoration: BoxDecoration(color: Colors.grey[350]),
+                          decoration: BoxDecoration(color: Colors.black12),
                           child: defaultFormField(
                             controller: cubit.passwordController,
                             type: TextInputType.visiblePassword,
@@ -295,7 +294,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                           'Confirm Password',
                           style: TextStyle(
                             fontSize: 18.0.sp,
-                            color: Colors.grey[500],
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -305,7 +304,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                         child: Container(
                           width: 340.w,
                           height: 40.h,
-                          decoration: BoxDecoration(color: Colors.grey[350]),
+                          decoration: BoxDecoration(color: Colors.black12),
                           child: defaultFormField(
                             controller: cubit.confirmPasswordController,
                             type: TextInputType.visiblePassword,
@@ -342,7 +341,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                           'Your Gender',
                           style: TextStyle(
                             fontSize: 20.0.sp,
-                            color: Colors.grey[500],
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -353,7 +352,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                           width: 180.w,
                           height: 40.h,
                           decoration: BoxDecoration(
-                            color: Colors.grey[300],
+                            color: Colors.black12,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
@@ -384,7 +383,7 @@ class _SignInScreenState extends State<SignUpScreen> {
                           width: 180.w,
                           height: 40.h,
                           decoration: BoxDecoration(
-                            color: Colors.grey[300],
+                            color: Colors.black12,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
@@ -419,19 +418,19 @@ class _SignInScreenState extends State<SignUpScreen> {
                           'Birthday',
                           style: TextStyle(
                             fontSize: 20.0.sp,
-                            color: Colors.grey[500],
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       SizedBox(height: 10.h),
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(start:5.0),
+                        padding: const EdgeInsetsDirectional.only(start: 5.0),
                         child: Container(
                           width: 340.w,
                           height: 40.h,
                           decoration: BoxDecoration(
-                            color: Colors.grey[350], //el [] 3shan opacity
+                            color: Colors.black12, //el [] 3shan opacity
                           ),
                           child: defaultFormField(
                             controller: cubit.birthController,
@@ -450,13 +449,13 @@ class _SignInScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: 30.h),
                   Container(
-                    width: 280.w,
-                    height: 60.h,
+                    width: 260.w,
+                    height: 50.h,
                     child: MaterialButton(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),
-                      color: Colors.deepPurple,
+                      color: Color(0xFFD69ADE),
                       child: Text(
                         'Enter',
                         style: TextStyle(

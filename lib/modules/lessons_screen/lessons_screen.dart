@@ -4,7 +4,6 @@ import 'package:code_quest/modules/quizes_screen/quizes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../python_course/paython_course_screen.dart';
 class LessonScreen extends StatefulWidget {
   @override
@@ -23,6 +22,7 @@ class _LessonScreenState extends State<LessonScreen> {
           print(state);
           final lesson=context.read<LessonsCubit>();
           return Scaffold(
+            backgroundColor: Color(0xFFF1EAFF),
             body: Container(
               width: double.infinity,
               height: double.infinity,
@@ -37,7 +37,7 @@ class _LessonScreenState extends State<LessonScreen> {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Color(0xFFAA60C8),
                         borderRadius: BorderRadius.vertical(
                           bottom: Radius.circular(40),
                         ),
@@ -59,7 +59,7 @@ class _LessonScreenState extends State<LessonScreen> {
                     ),
                     SizedBox(height: 50.h),
                     Padding(
-                      padding: const EdgeInsetsDirectional.only(end: 130),
+                      padding: const EdgeInsetsDirectional.only(end: 90),
                       child:
                           state is LessonsLoaded
                               ? Text(
@@ -76,7 +76,7 @@ class _LessonScreenState extends State<LessonScreen> {
                       child: Container(
                         width: 350.w,
                         decoration: BoxDecoration(
-                          color: Colors.grey[400],
+                          color: Colors.black12,
                           borderRadius: BorderRadius.circular(25),
                         ),
                         child: Padding(
@@ -132,13 +132,13 @@ class _LessonScreenState extends State<LessonScreen> {
                       child: Text(
                         "<  Back",
                         style: TextStyle(
-                          color: Colors.deepPurple,
+                          color:  Color(0xFFD69ADE),
                           fontWeight: FontWeight.bold,
                           fontSize: 18.sp,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        side: BorderSide(color: Colors.deepPurple, width: 4),
+                        side: BorderSide(color:  Color(0xFFD69ADE), width: 4),
                         backgroundColor: Colors.white,
                       ),
                     ),
@@ -173,7 +173,7 @@ class _LessonScreenState extends State<LessonScreen> {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurple,
+                        backgroundColor:  Color(0xFFD69ADE),
                       ),
                     ),
                   ),

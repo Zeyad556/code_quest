@@ -18,17 +18,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    // جلب بيانات الملف الشخصي عند بداية الشاشة
     context.read<ProfileCubit>().getProfileData();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF1EAFF),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(300.h),
         child: AppBar(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Color(0xFFAA60C8),
           elevation: 0,
           flexibleSpace: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: const Icon(
                   Icons.person,
                   size: 140.0,
-                  color: Colors.deepPurple,
+                  color: Color(0xFFAA60C8),
                 ),
               ),
             ],

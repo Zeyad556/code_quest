@@ -20,6 +20,7 @@ class _PrepareScreenState extends State<PrepareScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF1EAFF),
       body: BlocBuilder<PrepareCubit, PrepareState>(
         builder: (context, state) {
           if (state is PrepareLoading) {
@@ -49,15 +50,15 @@ class _PrepareScreenState extends State<PrepareScreen> {
       clipBehavior: Clip.none,
       children: [
         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // the rest of your container here
             SizedBox(height: 50.0.h),
             Center(
               child: Container(
                 width: 360.w,
                 height: 270.h,
                 decoration: BoxDecoration(
-                  color: Colors.grey[350],
+                  color: Colors.grey[250],
                   borderRadius: BorderRadius.circular(20.0),
                   boxShadow: [
                     BoxShadow(
@@ -67,34 +68,35 @@ class _PrepareScreenState extends State<PrepareScreen> {
                     ),
                   ],
                 ),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(vertical: 60),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 200),
-                        child: Text(
-                          title,
-                          style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
-                        ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(start: 20,end: 20),
+                      child: Text(
+                        title,
+                        style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
                       ),
-                      Slider(
-                        value: progress,
-                        min: 0,
-                        max: 100,
-                        divisions: 100,
-                        label: "${progress.toInt()}%",
-                        activeColor: Colors.deepPurple,
-                        onChanged: (value) {},
+                    ),
+                    Slider(
+                      value: progress,
+                      min: 0,
+                      max: 100,
+                      divisions: 100,
+                      label: "${progress.toInt()}%",
+                      activeColor: Color(0xFFAA60C8),
+                      onChanged: (value) {},
+                    ),
+                    Center(
+                      child: Text(
+                        "${progress.toInt()}% of the course to unlock the certificate",
+                        style: TextStyle(fontSize: 17.6.sp, fontWeight: FontWeight.bold),
                       ),
-                      Center(
-                        child: Text(
-                          "${progress.toInt()}% of the course to unlock the certificate",
-                          style: TextStyle(fontSize: 17.6.sp, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      SizedBox(height: 10.h),
-                      Container(
+                    ),
+                    SizedBox(height: 10.h),
+                    Center(
+                      child: Container(
                         width: 200.w,
                         height: 40.h,
                         child: ElevatedButton(
@@ -108,9 +110,9 @@ class _PrepareScreenState extends State<PrepareScreen> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
+                            backgroundColor:Color(0xFFAA60C8),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(20.r),
                             ),
                           ),
                           child: Text(
@@ -119,8 +121,8 @@ class _PrepareScreenState extends State<PrepareScreen> {
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

@@ -27,6 +27,7 @@ class _QuizesScreenState extends State<QuizesScreen> {
     return BlocProvider(
       create: (_) => QuizzesCubit()..QuizProcess(),
       child: Scaffold(
+        backgroundColor: Color(0xFFF1EAFF),
         body: BlocConsumer<QuizzesCubit, QuizzesState>(
           listener: (context, state) {
             if (state is QuizzesScoreLoading) {
@@ -71,7 +72,7 @@ class _QuizesScreenState extends State<QuizesScreen> {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Color(0xFFAA60C8),
                         borderRadius: BorderRadius.vertical(
                           bottom: Radius.circular(40),
                         ),
@@ -99,7 +100,7 @@ class _QuizesScreenState extends State<QuizesScreen> {
                         vertical: 8,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Colors.black12,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
@@ -174,7 +175,7 @@ class _QuizesScreenState extends State<QuizesScreen> {
                             tileColor:
                                 selectedAnswer == answer
                                     ? Color.fromARGB(200, 65, 8, 70)
-                                    : Colors.deepPurple,
+                                    : Color(0xFFAA60C8),
                             contentPadding: EdgeInsets.symmetric(
                               horizontal: 20,
                               vertical: -20,
@@ -223,7 +224,7 @@ class _QuizesScreenState extends State<QuizesScreen> {
                             ),
                           ),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple,
+                            backgroundColor: Color(0xFFD69ADE),
                           ),
                         ),
                       ),

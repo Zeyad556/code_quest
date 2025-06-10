@@ -25,11 +25,12 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF1EAFF),
       appBar: AppBar(
         actionsIconTheme: IconThemeData(
           color: Colors.grey
       ),
-        backgroundColor: Colors.deepPurple,
+          backgroundColor: Color(0xFFAA60C8),
         toolbarHeight: 80.0.h,
         title: Padding(
           padding: const EdgeInsetsDirectional.only(top: 40.0),
@@ -80,7 +81,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                     height: 70.h,
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                     decoration: BoxDecoration(
-                      color: Colors.deepPurple,
+                      color:Color(0xFFAA60C8),
                       borderRadius: BorderRadius.vertical(
                         bottom: Radius.circular(40),
                       ),
@@ -132,7 +133,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
           width: 350.0.w,
           height: 160.0.h,
           decoration: BoxDecoration(
-            color: Colors.grey[200],
+            color: Colors.black12,
             borderRadius: BorderRadius.circular(35.0),
           ),
           child: Padding(
@@ -147,7 +148,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                   course.title,
                   style: TextStyle(
                     fontSize: 20.0.sp,
-                    color: Colors.deepPurple,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -216,7 +217,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                       child: Icon(Icons.lock),
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
-                        course.status? course.rate >= 60 ? Colors.green : Colors.red : Colors.deepPurple
+                        course.status? course.rate >= 60 ? Colors.green : Colors.red : Color(0xFFD69ADE)
                         ,
                         foregroundColor: Colors.white,
                         fixedSize: Size(160.w, 40.h),

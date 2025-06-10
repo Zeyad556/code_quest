@@ -100,39 +100,38 @@ class CourseCard extends StatelessWidget {
       clipBehavior:
           Clip.none, // Allows the image to be placed outside the container
       children: [
-        Container(
-          margin: EdgeInsets.symmetric(vertical: 25.h),
-          width: width.w,
-          height: height.h,
-          decoration: BoxDecoration(
-            color: Colors.grey[300],
-            borderRadius: BorderRadius.circular(12),
-            boxShadow: [
-              BoxShadow(color: Colors.black12, blurRadius: 6, spreadRadius: 1),
-            ],
-          ),
-          child: Padding(
-            padding: const EdgeInsetsDirectional.only(end: 200.0),
-            child: Column(
-              children: [
-                SizedBox(width: 80.w), // Creates space for the floating image
-                Text(
-                  courseName,
-                  style: TextStyle(
-                    fontSize: fontSize,
-                    fontWeight: FontWeight.bold,
+        Expanded(
+          child: Container(
+            margin: EdgeInsets.symmetric(vertical: 20.h),
+            width: width.w,
+            height: height.h,
+            decoration: BoxDecoration(
+                color: Colors.grey[250],
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(color: Colors.black12, blurRadius: 6, spreadRadius: 1),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 10,end: 25,top: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    courseName,
+                    style: TextStyle(
+                      fontSize: fontSize,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                SizedBox(height: sizedheight.h),
-                Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(vertical: 23,horizontal: 7),
-                  child: SizedBox(
+                  SizedBox(height: sizedheight.h),
+                  SizedBox(
                     width: buttonWidth.w,
                     height: buttonHeight.h,
                     child: ElevatedButton(
                       onPressed: Pressed,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurple,
+                        backgroundColor: Color(0xFFD69ADE),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -143,8 +142,8 @@ class CourseCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
