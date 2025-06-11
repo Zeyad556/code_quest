@@ -189,7 +189,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepPurple, // Dark Purple
+                      backgroundColor: Color(0xFFD69ADE), // Dark Purple
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -226,9 +226,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                     style: OutlinedButton.styleFrom(
                       foregroundColor:
-                      Colors.deepPurple, // Text and border color
+                      Color(0xFFD69ADE), // Text and border color
                       side: BorderSide(
-                        color: Colors.deepPurple,
+                        color: Color(0xFFD69ADE),
                         width: 4.w,
                       ), // Border color
                       shape: RoundedRectangleBorder(
@@ -239,7 +239,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       "Log out",
                       style: TextStyle(
                         fontSize: 20.sp,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),

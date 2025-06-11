@@ -40,20 +40,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF1EAFF),
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Padding(
-          padding: const EdgeInsetsDirectional.only(start: 200.0),
-          child: Text(
-            "CodeQuest",
-            style: TextStyle(
-              fontStyle: FontStyle.italic,
-              color: Colors.deepPurple,
-              fontWeight: FontWeight.w600,
-              fontSize: 22.0,
-            ),
-          ),
-        ),
+          backgroundColor: Color(0xFFF1EAFF),
       ),
       body: BlocConsumer<EditCubit, EditState>(
         listener: (context, state) {
@@ -86,7 +75,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     'Edit Profile',
                     style: TextStyle(
                       fontSize: 30.0.sp,
-                      color: Colors.deepPurple,
+                      color: Color(0xFFAA60C8),
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -121,7 +110,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               children: [
                                 const CircleAvatar(
                                   radius: 70.0,
-                                  backgroundColor: Colors.deepPurple,
+                                  backgroundColor: Color(0xFFAA60C8),
                                   child: Icon(
                                     Icons.person,
                                     size: 100.0,
@@ -180,7 +169,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.deepPurple, // Dark Purple
+                            backgroundColor: Color(0xFFD69ADE), // Dark Purple
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -207,9 +196,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           onPressed: () {},
                           style: OutlinedButton.styleFrom(
                             foregroundColor:
-                                Colors.deepPurple, // Text and border color
+                            Color(0xFFD69ADE), // Text and border color
                             side: BorderSide(
-                              color: Colors.deepPurple,
+                              color: Color(0xFFD69ADE),
                             ), // Border color
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
@@ -219,10 +208,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               vertical: 12,
                             ),
                           ),
-                          child: Text("Cancel"),
+                          child: Text("Cancel",style: TextStyle(
+                            color: Color(0xFFD69ADE),fontWeight: FontWeight.bold,fontSize: 16.sp,),
                         ),
                       ),
-                    ],
+                      )],
                   ),
                 ),
                 Padding(

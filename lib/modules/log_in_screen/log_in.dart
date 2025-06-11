@@ -38,130 +38,133 @@ class _LogInScreenState extends State<LogInScreen> {
           return SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Image(
-                          image: AssetImage('assets/images/woman_2_logo.png'),
-                          width: 300.0.w,
-                          height: 500.0.h,
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.symmetric(
-                            horizontal: 10.0,
-                            vertical: 35.0,
-                          ),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.topRight,
                           child: Image(
-                            image: AssetImage(
-                              'assets/images/code_quest_logo.png',
-                            ),
-                            width: 80.0.w,
-                            height: 100.0.h,
+                            image: AssetImage('assets/images/woman_2_logo.png'),
+                            width: 300.0.w,
+                            height: 500.0.h,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    'Phone Number',
-                    style: TextStyle(
-                      fontSize: 16.0.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 5.0.h),
-                  defaultFormField(
-                    controller: phoneController,
-                    type: TextInputType.phone,
-                    lable: 'Enter your phone number',
-                    prefix: Icons.phone,
-                    validator: (value) {
-                      if (value == null || value.isEmpty)
-                        return 'Phone must not be empty';
-                      return null;
-                    },
-                  ),
-                  SizedBox(height: 20.0.h),
-                  Text(
-                    'Password',
-                    style: TextStyle(
-                      fontSize: 16.0.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 5.0.h),
-                  defaultFormField(
-                    controller: passwordController,
-                    type: TextInputType.visiblePassword,
-                    suffix:
-                        isPassword ? Icons.visibility : Icons.visibility_off,
-                    isPassword: isPassword,
-                    validator: (value) {
-                      if (value == null || value.isEmpty)
-                        return 'Password must not be empty';
-                      return null;
-                    },
-                    lable: 'Enter your password',
-                    prefix: Icons.lock,
-                    sufixPressed:
-                        () => setState(() => isPassword = !isPassword),
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed:
-                          () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder:
-                                  (context) => ForgetPasswordWithPhoneScreen(),
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.symmetric(
+                              horizontal: 10.0,
+                              vertical: 35.0,
                             ),
-                          ),
-                      child: Text(
-                        'Forget your password?',
-                        style: TextStyle(fontStyle: FontStyle.italic),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50.h,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50.0),
-                        ),
-                        backgroundColor: Color(0xFFD69ADE),
-                      ),
-                      child:
-                          state is LoginLoading
-                              ? CircularProgressIndicator(color: Colors.white)
-                              : Text(
-                                'LOG IN',
-                                style: TextStyle(
-                                  fontSize: 20.0.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
+                            child: Image(
+                              image: AssetImage(
+                                'assets/images/code_quest_logo.png',
                               ),
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          context.read<LoginCubit>().login(
-                            phoneController.text,
-                            passwordController.text,
-                          );
-                        }
+                              width: 80.0.w,
+                              height: 100.0.h,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      'Phone Number',
+                      style: TextStyle(
+                        fontSize: 16.0.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 5.0.h),
+                    defaultFormField(
+                      controller: phoneController,
+                      type: TextInputType.phone,
+                      lable: 'Enter your phone number',
+                      prefix: Icons.phone,
+                      validator: (value) {
+                        if (value == null || value.isEmpty)
+                          return 'Phone must not be empty';
+                        return null;
                       },
                     ),
-                  ),
-                ],
+                    SizedBox(height: 20.0.h),
+                    Text(
+                      'Password',
+                      style: TextStyle(
+                        fontSize: 16.0.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 5.0.h),
+                    defaultFormField(
+                      controller: passwordController,
+                      type: TextInputType.visiblePassword,
+                      suffix:
+                          isPassword ? Icons.visibility : Icons.visibility_off,
+                      isPassword: isPassword,
+                      validator: (value) {
+                        if (value == null || value.isEmpty)
+                          return 'Password must not be empty';
+                        return null;
+                      },
+                      lable: 'Enter your password',
+                      prefix: Icons.lock,
+                      sufixPressed:
+                          () => setState(() => isPassword = !isPassword),
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed:
+                            () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => ForgetPasswordWithPhoneScreen(),
+                              ),
+                            ),
+                        child: Text(
+                          'Forget your password?',
+                          style: TextStyle(fontStyle: FontStyle.italic),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50.h,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                          backgroundColor: Color(0xFFD69ADE),
+                        ),
+                        child:
+                            state is LoginLoading
+                                ? CircularProgressIndicator(color: Colors.white)
+                                : Text(
+                                  'LOG IN',
+                                  style: TextStyle(
+                                    fontSize: 20.0.sp,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            context.read<LoginCubit>().login(
+                              phoneController.text,
+                              passwordController.text,
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );

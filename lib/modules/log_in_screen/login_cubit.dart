@@ -14,7 +14,7 @@ class LoginCubit extends Cubit<LoginState> {
   final dio = Dio();
   static int userId = 0;
 
-  void login(String phone, String password) async {
+  Future <void> login(String phone, String password) async {
     try {
       emit(LoginLoading());
 
@@ -49,6 +49,7 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginFailure("Something went wrong"));
       }
     } catch (e) {
+      print(e);
       emit(LoginFailure("⚠️ ${e.toString()}"));
     }
   }
