@@ -82,7 +82,7 @@ class _QuizesScreenState extends State<QuizesScreen> {
                         padding: const EdgeInsetsDirectional.only(top: 40),
                         child: Center(
                           child: Text(
-                            "python intro",
+                            "Quiz",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 28.sp,

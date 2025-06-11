@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:code_quest/modules/log_in_screen/login_cubit.dart';
-import 'package:code_quest/modules/sign_up_screen/model/sign_up_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';

@@ -1,7 +1,9 @@
+import 'package:code_quest/modules/verfiy_account_screen/check_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'modules/edit_profile_screen/edit_cubit.dart';
+import 'modules/edit_profile_screen/edit_profile.dart';
 import 'modules/home_screen/home.dart';
 import 'modules/log_in_screen/login_cubit.dart';
 import 'modules/python_course/python_course_cubit.dart';

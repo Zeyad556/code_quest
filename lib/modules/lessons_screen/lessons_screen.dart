@@ -47,7 +47,7 @@ class _LessonScreenState extends State<LessonScreen> {
                         padding: const EdgeInsetsDirectional.only(top: 40),
                         child: Center(
                           child: Text(
-                            "python.Intro",
+                            "",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 25.sp,

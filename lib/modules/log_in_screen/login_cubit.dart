@@ -1,4 +1,3 @@
-
 // ✅ File: login_cubit.dart
 import 'package:bloc/bloc.dart';
 import 'package:code_quest/modules/authentaction_model/auth_model.dart';
@@ -21,14 +20,13 @@ class LoginCubit extends Cubit<LoginState> {
 
       final response = await dio.post(
         "https://usermanagement-codequst-5a2d223458b5.herokuapp.com/auth/login",
-        data: {
-          "phoneNum": phone,
-          "password": password,
-        },
+        data: {"phoneNum": phone, "password": password},
       );
 
       if (response.statusCode == 200) {
-        AuthModel userData = authModelFromJson(response.data as Map<String, dynamic>);
+        AuthModel userData = authModelFromJson(
+          response.data as Map<String, dynamic>,
+        );
         userId = userData.userId;
 
         await CacheHelper.saveUserId(userId);
@@ -44,7 +42,6 @@ class LoginCubit extends Cubit<LoginState> {
             birth: '',
           ),
         );
-
         emit(LoginSuccess());
       } else if (response.statusCode == 401) {
         emit(LoginFailure("Invalid phone number or password"));

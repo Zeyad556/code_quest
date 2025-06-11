@@ -19,7 +19,8 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
   Widget build(BuildContext context) {
     final cubit = context.read<SignUpCubit>();
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.white),
+        backgroundColor: Color(0xFFE5D4FF),
+      appBar: AppBar(backgroundColor: Color(0xFFE5D4FF),),
       resizeToAvoidBottomInset: false,
       body: Form(
         key: formKey,
@@ -44,18 +45,6 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
             },
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 280.0),
-                  child: Text(
-                    'CodeQuest',
-                    style: TextStyle(
-                      color: Colors.deepPurple,
-                      fontStyle: FontStyle.italic,
-                      fontSize: 25.0.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
                 SizedBox(height: 10.0.h),
                 Center(
                   child: Text(
@@ -112,7 +101,7 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
                   child: Text(
                     'Try another way',
                     style: TextStyle(
-                      color: Colors.deepPurple,
+                      color: Colors.black,
                       fontSize: 20.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
@@ -123,7 +112,7 @@ class _CheckCodeScreenState extends State<CheckCodeScreen> {
                   width: 230.w,
                   height: 60.h,
                   decoration: BoxDecoration(
-                    color: Colors.deepPurple,
+                    color: Color(0xFFD69ADE),
                     borderRadius: BorderRadius.circular(50)
                   ),
                   child: MaterialButton(

@@ -93,7 +93,7 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Python Course",
+                        "Course Lessons",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 25.sp,
@@ -207,12 +207,6 @@ class _PaythonCourseScreenState extends State<PaythonCourseScreen> {
                     ) : ElevatedButton(
                       onPressed: () {
                         PythonCourseCubit.num=course.Id;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LessonScreen(),
-                          ),
-                        );
                       },
                       child: Icon(Icons.lock),
                       style: ElevatedButton.styleFrom(
