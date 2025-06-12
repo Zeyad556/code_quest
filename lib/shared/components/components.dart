@@ -114,7 +114,7 @@ class CourseCard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsetsDirectional.only(
               start: 10,
-              end: 25,
+              end: 150,
               top: 20,
             ),
             child: Column(
@@ -141,7 +141,7 @@ class CourseCard extends StatelessWidget {
                     ),
                     child: Text(
                       buttonWord,
-                      style: TextStyle(color: Colors.white, fontSize: 16.0.sp),
+                      style: TextStyle(color: Colors.white, fontSize: 14.0.sp),
                     ),
                   ),
                 ),
@@ -150,18 +150,18 @@ class CourseCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          width: 140.w,
-          height: 140.h,
+          width: 120.w,
+          height: 120.h,
           top: -20, // Adjust this value to move the image up
-          right: -5, // Positioning for the left side
+          right: -10, // Positioning for the left side
           child: CircleAvatar(
             radius: 5, // Adjust the size
             backgroundColor: Colors.white,
             child: ClipOval(
               child: Image.asset(
                 imagePath,
-                width: 130.w,
-                height: 130.h,
+                width: 120.w,
+                height: 120.h,
                 fit: BoxFit.cover,
               ),
             ),

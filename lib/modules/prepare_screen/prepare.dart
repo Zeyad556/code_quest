@@ -73,7 +73,7 @@ class _PrepareScreenState extends State<PrepareScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsetsDirectional.only(start: 20,end: 20),
+                      padding: const EdgeInsetsDirectional.only(start: 20,end: 40),
                       child: Text(
                         title,
                         style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
@@ -129,10 +129,10 @@ class _PrepareScreenState extends State<PrepareScreen> {
           ],
         ),
         Positioned(
-          width: 140.w,
-          height: 140.h,
+          width: 130.w,
+          height: 130.h,
           top: 15,
-          right: -3,
+          right: -10,
           child: CircleAvatar(
             backgroundColor: Colors.white,
             child: ClipOval(
