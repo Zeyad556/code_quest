@@ -14,86 +14,91 @@ class ApplyScreen extends StatefulWidget {
 
 class _ApplyScreenState extends State<ApplyScreen> {
   @override
-  void initState (){
+  void initState() {
     context.read<CoursesApplyCubit>().courseApplyProcess();
     super.initState();
   }
-  String safeImagePath(String title) {
-    String path = 'assets/images/'+title+'.png';
-    return path;
+
+  String titleToAsset(String title) {
+    return 'assets/images/' + title.replaceAll(' ', '%20') + '.png';
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF1EAFF),
       body: BlocConsumer<CoursesApplyCubit, CoursesApplyState>(
-          listener: (context, state){
-            if(state is CoursesApplySucces){
-              CherryToastMsgs.CherryToastSuccess(context: context, title: 'Course Enrolled', description: 'Enrolled successfully').show(context);
-              // Navigator.push(context,MaterialPageRoute(builder: (context)=>PrepareScreen()));
-              DefaultTabController.of(context)?.animateTo(1);
-            }
-          },
-          builder: (context, state) {
-            print(state);
-            if (state is CoursesApplyLoading) {
-              return Center(child: CircularProgressIndicator());
-            } else if (state is CoursesApplyloaded) {
-              final courses = CoursesApplyCubit.apply;
-              print(courses);
-              return SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Get Your Course',
-                        style: TextStyle(
-                          fontSize: 22.0.sp,
-                          fontWeight: FontWeight.bold,
-                          fontStyle: FontStyle.italic,
-                        ),
+        listener: (context, state) {
+          if (state is CoursesApplySucces) {
+            CherryToastMsgs.CherryToastSuccess(
+              context: context,
+              title: 'Course Enrolled',
+              description: 'Enrolled successfully',
+            ).show(context);
+            // Navigator.push(context,MaterialPageRoute(builder: (context)=>PrepareScreen()));
+            DefaultTabController.of(context)?.animateTo(1);
+          }
+        },
+        builder: (context, state) {
+          print(state);
+          if (state is CoursesApplyLoading) {
+            return Center(child: CircularProgressIndicator());
+          } else if (state is CoursesApplyloaded) {
+            final courses = CoursesApplyCubit.apply;
+            print(courses);
+            return SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Get Your Course',
+                      style: TextStyle(
+                        fontSize: 22.0.sp,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
                       ),
-                      SizedBox(height: 20.0.h),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: courses.length,
-                        itemBuilder: (context, index) {
-                          final course = courses[index];
-                          print(course.title);
-                          return Padding(
-                            padding: EdgeInsets.only(bottom: 20.0.h),
-                            child: CourseCard(
-                              courseName: course.title,
-                              imagePath: safeImagePath(course.title),
-                              fontSize: 25.sp,
-                              width: 500.w,
-                              height: 150.h,
-                              sizedheight: 25.h,
-                              buttonWidth: 190.w,
-                              buttonHeight: 35.h,
-                              buttonWord: 'Get Course',
-                              Pressed: (){
-                                CoursesApplyCubit.enrolledCourse=course.id;
-                                context.read<CoursesApplyCubit>().enrollProcess();
-                              },
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(height: 20.0.h),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: courses.length,
+                      itemBuilder: (context, index) {
+                        final course = courses[index];
+                        print(course.title);
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 20.0.h),
+                          child: CourseCard(
+                            courseName: course.title,
+                            imagePath: titleToAsset(course.title),
+                            fontSize: 25.sp,
+                            width: 500.w,
+                            height: 150.h,
+                            sizedheight: 25.h,
+                            buttonWidth: 190.w,
+                            buttonHeight: 35.h,
+                            buttonWord: 'Get Course',
+                            Pressed: () {
+                              CoursesApplyCubit.enrolledCourse = course.id;
+                              context.read<CoursesApplyCubit>().enrollProcess();
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
-              );
-            } else if (state is CoursesApplyFailure) {
-              return Center(child: Text(state.error));
-            } else {
-              return SizedBox();
-            }
-          },
-        ),
+              ),
+            );
+          } else if (state is CoursesApplyFailure) {
+            return Center(child: Text(state.error));
+          } else {
+            return SizedBox();
+          }
+        },
+      ),
     );
   }
 }

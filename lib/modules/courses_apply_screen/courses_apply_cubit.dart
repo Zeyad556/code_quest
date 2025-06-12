@@ -5,12 +5,11 @@ import '../log_in_screen/login_cubit.dart';
 import 'courses_apply_state.dart';
 
 class CoursesApplyCubit extends Cubit<CoursesApplyState> {
-
   CoursesApplyCubit() : super(CoursesApplyInitial());
   static List<CoursesApplyModel> apply = [];
-  static int enrolledCourse=-1;
+  static int enrolledCourse = -1;
 
-  Future<void> enrollProcess ()async{
+  Future<void> enrollProcess() async {
     emit(CoursesApplyLoading());
     var send = await http.post(
       Uri.parse(
@@ -18,9 +17,9 @@ class CoursesApplyCubit extends Cubit<CoursesApplyState> {
       ),
     );
     print(send.body);
-    if(send.statusCode==200){
+    if (send.statusCode == 200) {
       emit(CoursesApplySucces());
-    }else{
+    } else {
       emit(CoursesApplyFailure(error: "error while sending"));
     }
   }

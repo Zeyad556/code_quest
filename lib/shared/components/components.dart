@@ -100,50 +100,52 @@ class CourseCard extends StatelessWidget {
       clipBehavior:
           Clip.none, // Allows the image to be placed outside the container
       children: [
-        Expanded(
-          child: Container(
-            margin: EdgeInsets.symmetric(vertical: 20.h),
-            width: width.w,
-            height: height.h,
-            decoration: BoxDecoration(
-                color: Colors.grey[250],
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(color: Colors.black12, blurRadius: 6, spreadRadius: 1),
-              ],
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 20.h),
+          width: width.w,
+          height: height.h,
+          decoration: BoxDecoration(
+            color: Colors.grey[250],
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: [
+              BoxShadow(color: Colors.black12, blurRadius: 6, spreadRadius: 1),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: 10,
+              end: 25,
+              top: 20,
             ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(start: 10,end: 25,top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    courseName,
-                    style: TextStyle(
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.bold,
-                    ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  courseName,
+                  style: TextStyle(
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(height: sizedheight.h),
-                  SizedBox(
-                    width: buttonWidth.w,
-                    height: buttonHeight.h,
-                    child: ElevatedButton(
-                      onPressed: Pressed,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFFD69ADE),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      child: Text(
-                        buttonWord,
-                        style: TextStyle(color: Colors.white, fontSize: 16.0.sp),
+                ),
+                SizedBox(height: sizedheight.h),
+                SizedBox(
+                  width: buttonWidth.w,
+                  height: buttonHeight.h,
+                  child: ElevatedButton(
+                    onPressed: Pressed,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFD69ADE),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
                       ),
                     ),
+                    child: Text(
+                      buttonWord,
+                      style: TextStyle(color: Colors.white, fontSize: 16.0.sp),
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -202,7 +204,11 @@ Widget divider() {
   );
 }
 
-Widget buildProfileField(String label, TextEditingController value, {bool isBold = false}) {
+Widget buildProfileField(
+  String label,
+  TextEditingController value, {
+  bool isBold = false,
+}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 5),
     child: Column(
@@ -228,7 +234,7 @@ Widget buildProfileField(String label, TextEditingController value, {bool isBold
             borderRadius: BorderRadius.circular(8),
           ),
           child: TextField(
-            controller:value ,
+            controller: value,
             style: TextStyle(
               fontSize: 16,
               fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
