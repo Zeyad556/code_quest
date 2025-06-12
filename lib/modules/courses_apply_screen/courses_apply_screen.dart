@@ -18,6 +18,10 @@ class _ApplyScreenState extends State<ApplyScreen> {
     context.read<CoursesApplyCubit>().courseApplyProcess();
     super.initState();
   }
+  String safeImagePath(String title) {
+    String path = 'assets/images/'+title+'.png';
+    return path;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +39,7 @@ class _ApplyScreenState extends State<ApplyScreen> {
             if (state is CoursesApplyLoading) {
               return Center(child: CircularProgressIndicator());
             } else if (state is CoursesApplyloaded) {
-              final courses = context.read<CoursesApplyCubit>().apply;
+              final courses = CoursesApplyCubit.apply;
               print(courses);
               return SingleChildScrollView(
                 child: Padding(
@@ -63,7 +67,7 @@ class _ApplyScreenState extends State<ApplyScreen> {
                             padding: EdgeInsets.only(bottom: 20.0.h),
                             child: CourseCard(
                               courseName: course.title,
-                              imagePath: 'assets/images/'+course.title+'.png',
+                              imagePath: safeImagePath(course.title),
                               fontSize: 25.sp,
                               width: 500.w,
                               height: 150.h,

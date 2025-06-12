@@ -7,7 +7,7 @@ import 'courses_apply_state.dart';
 class CoursesApplyCubit extends Cubit<CoursesApplyState> {
 
   CoursesApplyCubit() : super(CoursesApplyInitial());
-  List<CoursesApplyModel> apply = [];
+  static List<CoursesApplyModel> apply = [];
   static int enrolledCourse=-1;
 
   Future<void> enrollProcess ()async{

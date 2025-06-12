@@ -191,6 +191,15 @@ class _SignInScreenState extends State<SignUpScreen> {
                           ),
                         ),
                       ),
+                      SizedBox(height: 5.h),
+                      Text(
+                        'You will receive an email from CodeQuest',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 13.0.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 20.h),
@@ -225,15 +234,6 @@ class _SignInScreenState extends State<SignUpScreen> {
                             lable: 'Enter your phone numebr',
                             prefix: Icons.phone,
                           ),
-                        ),
-                      ),
-                      SizedBox(height: 5.h),
-                      Text(
-                        'You may receive Whatsapp or SMS notfication from us',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 13.0.sp,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],

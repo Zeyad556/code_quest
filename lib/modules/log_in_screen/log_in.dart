@@ -12,7 +12,7 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-  final phoneController = TextEditingController();
+  final Controller = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   bool isPassword = true;
@@ -72,7 +72,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       ],
                     ),
                     Text(
-                      'Phone Number',
+                      'Emaiil or Phone',
                       style: TextStyle(
                         fontSize: 16.0.sp,
                         fontWeight: FontWeight.bold,
@@ -80,10 +80,10 @@ class _LogInScreenState extends State<LogInScreen> {
                     ),
                     SizedBox(height: 5.0.h),
                     defaultFormField(
-                      controller: phoneController,
-                      type: TextInputType.phone,
-                      lable: 'Enter your phone number',
-                      prefix: Icons.phone,
+                      controller: Controller,
+                      type: TextInputType.text,
+                      lable: 'Enter your phone number or email',
+                      prefix: Icons.account_circle,
                       validator: (value) {
                         if (value == null || value.isEmpty)
                           return 'Phone must not be empty';
@@ -156,7 +156,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             context.read<LoginCubit>().login(
-                              phoneController.text,
+                              Controller.text,
                               passwordController.text,
                             );
                           }
