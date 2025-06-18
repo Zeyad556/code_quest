@@ -76,7 +76,7 @@ class _PrepareScreenState extends State<PrepareScreen> {
                       padding: const EdgeInsetsDirectional.only(start: 20,end: 40),
                       child: Text(
                         title,
-                        style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 23.sp, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Slider(

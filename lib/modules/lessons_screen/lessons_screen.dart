@@ -11,8 +11,6 @@ class LessonScreen extends StatefulWidget {
 }
 
 class _LessonScreenState extends State<LessonScreen> {
-  String text = "Python is a popular programming language.";
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LessonsCubit>(

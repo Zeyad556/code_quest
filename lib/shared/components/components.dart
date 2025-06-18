@@ -114,7 +114,6 @@ class CourseCard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsetsDirectional.only(
               start: 10,
-              end: 150,
               top: 20,
             ),
             child: Column(
