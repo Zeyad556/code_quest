@@ -16,7 +16,8 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _ApplyScreenState();
 }
 
-class _ApplyScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
+class _ApplyScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   late TabController controller;
 
   @override
@@ -46,7 +47,14 @@ class _ApplyScreenState extends State<HomeScreen> with SingleTickerProviderState
             },
           ),
         ],
-        title: Text("Code Quest", style: TextStyle(fontSize: 30.sp, color: Colors.white, fontWeight: FontWeight.bold)),
+        title: Text(
+          "Code Quest",
+          style: TextStyle(
+            fontSize: 30.sp,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -54,22 +62,20 @@ class _ApplyScreenState extends State<HomeScreen> with SingleTickerProviderState
             color: Color(0xFFAA60C8),
             child: Padding(
               padding: const EdgeInsetsDirectional.only(top: 50.0),
-              child: Expanded(
-                child: TabBar(
-                  controller: controller,
-                  indicatorColor: Colors.white,
-                  indicatorWeight: 3,
-                  labelStyle: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                  tabs: [
-                    Tab(text: "Apply"),
-                    Tab(text: "Prepare"),
-                    Tab(text: "Certify"),
-                  ],
+              child: TabBar(
+                controller: controller,
+                indicatorColor: Colors.white,
+                indicatorWeight: 3,
+                labelStyle: TextStyle(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
+                tabs: [
+                  Tab(text: "Apply"),
+                  Tab(text: "Prepare"),
+                  Tab(text: "Certify"),
+                ],
               ),
             ),
           ),

@@ -1,9 +1,7 @@
-import 'package:code_quest/modules/verfiy_account_screen/check_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'modules/edit_profile_screen/edit_cubit.dart';
-import 'modules/edit_profile_screen/edit_profile.dart';
 import 'modules/home_screen/home.dart';
 import 'modules/log_in_screen/login_cubit.dart';
 import 'modules/python_course/python_course_cubit.dart';
@@ -14,13 +12,12 @@ import 'modules/profile_screen/profile_cubit.dart';
 import 'modules/quizes_screen/quizes_cubit.dart';
 import 'modules/courses_apply_screen/courses_apply_cubit.dart';
 import 'modules/prepare_screen/prepare_cubit.dart';
- 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
 
-  final savedUser = CacheHelper.getLoginData();  
+  final savedUser = CacheHelper.getLoginData();
 
   runApp(
     MultiBlocProvider(
@@ -52,7 +49,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: isLoggedIn ?    HomeScreen(index: 0) : WelcomeScreen(),
+          home: isLoggedIn ? HomeScreen(index: 0) : WelcomeScreen(),
         );
       },
       child: const SizedBox.shrink(),
